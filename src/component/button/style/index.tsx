@@ -2,9 +2,6 @@ import {StyleSheet} from 'react-native';
 import {Themes} from '../../../themes';
 
 export const styles = StyleSheet.create({
-  // type?: 'primary' | 'warning' | 'alert | 'outline';
-  // size?: 'large' | 'medium' | 'small';
-
   container: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -35,6 +32,10 @@ export const styles = StyleSheet.create({
   outlineRawText: {
     color: Themes.colorPrimary,
   },
+  linkRawText: {
+    color: Themes.colorWait,
+    textDecorationLine: 'underline',
+  },
 
   // Button color
   primaryFill: {
@@ -50,6 +51,9 @@ export const styles = StyleSheet.create({
     backgroundColor: Themes.colors.white,
     borderWidth: Themes.borderWidthMd,
     borderColor: Themes.colorPrimary,
+  },
+  linkFill: {
+    backgroundColor: Themes.colors.transparent,
   },
 
   // Button size
@@ -83,6 +87,9 @@ export const styles = StyleSheet.create({
     backgroundColor: Themes.colors.white,
     borderWidth: Themes.borderWidthMd,
   },
+  linkDisableFill: {
+    backgroundColor: Themes.colorTextDisabled,
+  },
 
   // Indicator color
   primaryIndicatorColor: {
@@ -97,8 +104,15 @@ export const styles = StyleSheet.create({
   outlineIndicatorColor: {
     color: Themes.colors.black,
   },
+  linkIndicatorColor: {
+    color: Themes.colors.black,
+  },
 
   indicator: {
     marginRight: Themes.hSpacingMd,
+  },
+
+  linkButtonStyle: {
+    height: undefined,
   },
 });

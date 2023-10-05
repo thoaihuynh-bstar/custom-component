@@ -14,7 +14,7 @@ import {
 import {styles} from './style';
 
 export interface ButtonProps extends TouchableOpacityProps {
-  type?: 'primary' | 'warning' | 'alert' | 'outline';
+  type?: 'primary' | 'warning' | 'alert' | 'outline' | 'link';
   size?: 'large' | 'medium' | 'small';
   disabled?: boolean;
   loading?: boolean;
@@ -86,6 +86,7 @@ export const Button = (props: ButtonProps): JSX.Element => {
     styles[`${type}Fill`],
     styles[`${size}Button`],
     disabled && styles[`${type}DisableFill`],
+    type === 'link' && styles.linkButtonStyle,
   ];
 
   const indicatorColor = StyleSheet.flatten(
