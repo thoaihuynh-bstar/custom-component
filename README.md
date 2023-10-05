@@ -5,13 +5,13 @@
 ## Usage
 - ```yarn add @huynhtrungthoai/custom-component```
 - ```npm i @huynhtrungthoai/custom-component --save```
-- ```import { CustomText } from "@huynhtrungthoai/custom-component";```
+- ```import { Button } from "@huynhtrungthoai/custom-component";```
 
 ## Components
-- ```<CustomText text={''}``` - custom text component
+- ```<Button></Button>``` - custom text component
 
 
 ## Example
 ```
-<CustomText text={'Hello word!'}/>
+<Button onPress={() => {}}>Hello Word!</Button>
 ```

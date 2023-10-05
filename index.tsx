@@ -1,3 +1,2 @@
-import { CustomText } from './src/component/Text';
-
-export { CustomText };
+import {Button} from './src/component/button'
+export { Button };

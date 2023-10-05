@@ -1,6 +1,6 @@
 {
   "name": "@huynhtrungthoai/custom-component",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "Custom component",
   "main": "index.tsx",
   "scripts": {},
@@ -9,9 +9,6 @@
     "react-native",
     "layout",
     "elements",
-    "boilerplate",
-    "grid",
-    "flexbox",
     "react-native-component",
     "react-component",
     "react-native",
