@@ -1,3 +1,6 @@
-import {Button} from './src/component/button'
+import Button from './src/component/button/button'
 import {Text} from './src/component/text'
-export {Button, Text};
+import {View} from './src/component/view/view'
+import StyledText from './src/component/styledText';
+
+export {Button, Text, View, StyledText};

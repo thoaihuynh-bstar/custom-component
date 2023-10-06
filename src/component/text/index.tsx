@@ -53,7 +53,7 @@ export const Text = (props: TextProps): JSX.Element => {
     black = false,
     white = false,
     underline = false,
-    color = '#000000',
+    color,
     semibold,
   } = props;
 
