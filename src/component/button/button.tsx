@@ -145,7 +145,7 @@ const Button = (props: StyledButtonProps) => {
         }
     }, [size]);
 
-    const buttonClassName = `${checkButtonSize} ${checkButtonBG} rounded-[6px] mx-[6px] flex flex-row items-center justify-center`;
+    const buttonClassName = `${checkButtonSize} ${checkButtonBG} rounded-[6px] px-[6px] flex flex-row items-center justify-center`;
     const textClassName = `${checkTextColor} ${checkTextSize} font-bold`;
     const buttonLinkStyle = `bg-transparent`;
     const textLinkStyle = `text-sky-700 underline`;
