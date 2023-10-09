@@ -84,7 +84,6 @@ const Button = (props: StyledButtonProps) => {
     const checkButtonBG = useMemo(() => {
         if (disable) {
             switch (type) {
-                
                 case "default":
                     return `bg-sky-700/60`;
                 case "outline":
@@ -139,7 +138,7 @@ const Button = (props: StyledButtonProps) => {
 
     const checkIndicatorSize = useMemo(() => {
         switch (size) {
-            case    "sm":
+            case "sm":
                 return 0.6;
             case "md":
                 return 0.8;
