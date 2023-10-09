@@ -2,7 +2,7 @@ import {omit} from 'lodash';
 import React from 'react';
 import {StyleProp, Text as RNText} from 'react-native';
 import {styles} from './style';
-import { Themes } from '../../themes';
+import { Themes } from '../../themes/metrics';
 
 export interface TextProps {
   children?: JSX.Element | JSX.Element[] | React.ReactNode;

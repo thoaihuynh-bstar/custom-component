@@ -6,6 +6,7 @@
 - ```yarn add @huynhtrungthoai/custom-component```
 - ```npm i @huynhtrungthoai/custom-component --save```
 - ```import { Button } from "@huynhtrungthoai/custom-component";```
+- ``` Add "./node_modules/@huynhtrungthoai/custom-component/src/**/**/*.{js,jsx,ts,tsx}" to your tailwind.config.js ```
 
 ## Components
 - ```<Button></Button>``` - custom text component

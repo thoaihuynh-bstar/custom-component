@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import { Themes } from '../../../themes';
+import { Themes } from '../../../themes/metrics';
 
 export const styles = StyleSheet.create({
   // Text color
