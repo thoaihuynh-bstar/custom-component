@@ -5,8 +5,11 @@
 ## Usage
 - ```yarn add @huynhtrungthoai/custom-component```
 - ```npm i @huynhtrungthoai/custom-component --save```
+
+- ``` Add path content "./node_modules/@huynhtrungthoai/custom-component/src/**/**/*.{js,jsx,ts,tsx}" to your tailwind.config.js ```
+
 - ```import { Button } from "@huynhtrungthoai/custom-component";```
-- ``` Add "./node_modules/@huynhtrungthoai/custom-component/src/**/**/*.{js,jsx,ts,tsx}" to your tailwind.config.js ```
+
 
 ## Components
 - ```<Button></Button>``` - custom text component

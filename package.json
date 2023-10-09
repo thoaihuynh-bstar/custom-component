@@ -7,15 +7,12 @@
   "keywords": [
     "huynhtrungthoai",
     "react-native",
-    "layout",
+    "nativewind",
     "elements",
     "react-native-component",
-    "react-component",
-    "react-native",
-    "ios",
-    "android"
+    "react-native"
   ],
-  "author": "Thoai.Huynh",
+  "author": "Huynh Trung Thoai <huynhtrungthoai@gmail.com>",
   "license": "MIT",
   "private": false,
   "peerDependencies": {
