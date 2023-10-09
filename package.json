@@ -1,6 +1,6 @@
 {
   "name": "@huynhtrungthoai/custom-component",
-  "version": "0.0.22",
+  "version": "0.0.26",
   "description": "Custom component",
   "main": "index.tsx",
   "scripts": {},
@@ -20,7 +20,8 @@
   "private": false,
   "peerDependencies": {
     "lodash": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "nativewind": "*"
   },
   "devDependencies": {
     "@types/jest": "^29.5.1",
