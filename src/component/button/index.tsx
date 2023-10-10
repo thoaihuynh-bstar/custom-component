@@ -1,10 +1,5 @@
 import React, { useMemo } from "react";
-import {
-    Text,
-    TouchableOpacity,
-    ActivityIndicator,
-    GestureResponderEvent,
-} from "react-native";
+import { Text, TouchableOpacity, ActivityIndicator, GestureResponderEvent } from "react-native";
 import { styled } from "nativewind";
 import Colors from "../../themes/colors";
 import Metrics from "../../themes/metrics";
@@ -12,17 +7,18 @@ export const StyledTouchableOpacity = styled(TouchableOpacity);
 export const StyledActivityIndicator = styled(ActivityIndicator);
 export const StyledText = styled(Text);
 
-
 interface StyledButtonProps {
     loading?: boolean;
     disable?: boolean;
-    buttonStyle?: string;
-    textStyle?: string;
+    buttonStyle?: string; // NativeWind className
+    textStyle?: string; // NativeWind className
     activeOpacity?: number;
     isLink?: boolean;
-    children: React.ReactNode;
+    children: React.ReactNode | string;
     type?: "default" | "outline" | "alert";
     size?: "sm" | "md" | "lg";
+    leftIcon?: React.ReactNode;
+    rightIcon?: React.ReactNode;
     onPress?: (e: GestureResponderEvent) => void;
     onLongPress?: (e: GestureResponderEvent) => void;
     onPressIn?: (e: GestureResponderEvent) => void;
@@ -40,6 +36,8 @@ const Button = (props: StyledButtonProps) => {
         size = "lg",
         disable = false,
         activeOpacity = 0.6,
+        leftIcon = null,
+        rightIcon = null,
         onPress,
         onLongPress,
         onPressIn,
@@ -147,8 +145,8 @@ const Button = (props: StyledButtonProps) => {
         }
     }, [size]);
 
-    const buttonClassName = `${checkButtonSize} ${checkButtonBG} rounded-[6px] px-[6px] flex flex-row items-center justify-center ${isLink ? "bg-transparent" : '' } ${buttonStyle}`;
-    const textClassName = `${checkTextColor} ${checkTextSize} font-bold ${isLink ? 'text-sky-700 underline' : ''} ${textStyle}`;
+    const buttonClassName = `${checkButtonSize} ${checkButtonBG} rounded-[6px] px-[6px] flex flex-row items-center justify-center ${isLink ? "bg-transparent" : ""} ${buttonStyle}`;
+    const textClassName = `${checkTextColor} ${checkTextSize} font-bold ${isLink ? "text-sky-700 underline" : ""} ${textStyle}`;
 
     return (
         <StyledTouchableOpacity
@@ -169,9 +167,9 @@ const Button = (props: StyledButtonProps) => {
                     style={{ transform: [{ scale: checkIndicatorSize }] }}
                 />
             ) : null}
-            <StyledText className={textClassName}>
-                {children}
-            </StyledText>
+            {leftIcon && leftIcon}
+            <StyledText className={textClassName}>{children}</StyledText>
+            {rightIcon && rightIcon}
         </StyledTouchableOpacity>
     );
 };

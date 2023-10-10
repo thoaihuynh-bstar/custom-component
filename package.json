@@ -1,6 +1,6 @@
 {
   "name": "@huynhtrungthoai/custom-component",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "description": "Custom component",
   "main": "index.tsx",
   "scripts": {},
