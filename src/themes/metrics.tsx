@@ -15,7 +15,7 @@ const Metrics = {
     tabBarHeight: 60,
 
     // Button  height
-    buttonXs: 26,
+    buttonSm: 26,
     buttonMd: 36,
     buttonLg: 48,
 

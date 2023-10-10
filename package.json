@@ -1,7 +1,7 @@
 {
   "name": "@huynhtrungthoai/custom-component",
-  "version": "0.0.31",
-  "description": "Custom component",
+  "version": "0.0.43",
+  "description": "Implement View",
   "main": "index.tsx",
   "scripts": {},
   "keywords": [

@@ -6,8 +6,8 @@ import {
     GestureResponderEvent,
 } from "react-native";
 import { styled } from "nativewind";
-import Colors from "../../themes/colors";
-import Metrics from "../../themes/metrics";
+import Colors from "../themes/colors";
+import Metrics from "../themes/metrics";
 export const StyledTouchableOpacity = styled(TouchableOpacity);
 export const StyledActivityIndicator = styled(ActivityIndicator);
 export const StyledText = styled(Text);
@@ -23,6 +23,8 @@ interface StyledButtonProps {
     children: React.ReactNode;
     type?: "default" | "outline" | "alert";
     size?: "sm" | "md" | "lg";
+    leftIcon?: React.ReactNode;
+    rightIcon?: React.ReactNode;
     onPress?: (e: GestureResponderEvent) => void;
     onLongPress?: (e: GestureResponderEvent) => void;
     onPressIn?: (e: GestureResponderEvent) => void;
@@ -32,14 +34,16 @@ interface StyledButtonProps {
 const Button = (props: StyledButtonProps) => {
     const {
         loading = false,
-        buttonStyle,
-        textStyle,
+        buttonStyle = '',
+        textStyle = '',
         children,
         isLink = false,
         type = "default",
         size = "lg",
         disable = false,
         activeOpacity = 0.6,
+        leftIcon = null,
+        rightIcon = null,
         onPress,
         onLongPress,
         onPressIn,
@@ -73,13 +77,13 @@ const Button = (props: StyledButtonProps) => {
     const checkButtonSize = useMemo(() => {
         switch (size) {
             case "sm":
-                return `h-[${Metrics.buttonXs}]`;
+                return `h-[${Metrics.buttonSm}px]`;
             case "md":
-                return `h-[${Metrics.buttonMd}]`;
+                return `h-[${Metrics.buttonMd}px]`;
             case "lg":
-                return `h-[${Metrics.buttonLg}]`;
+                return `h-[${Metrics.buttonLg}px]`;
         }
-    }, [size]);
+    }, ["size"]);
 
     const checkButtonBG = useMemo(() => {
         if (disable) {
@@ -101,7 +105,7 @@ const Button = (props: StyledButtonProps) => {
                     return "bg-red-600";
             }
         }
-    }, [type, disable]);
+    }, ["type", "disable"]);
 
     const checkTextColor = useMemo(() => {
         switch (type) {
@@ -112,7 +116,7 @@ const Button = (props: StyledButtonProps) => {
             case "alert":
                 return "text-white";
         }
-    }, [type]);
+    }, ["type"]);
 
     const checkTextSize = useMemo(() => {
         switch (size) {
@@ -121,9 +125,9 @@ const Button = (props: StyledButtonProps) => {
             case "md":
                 return `text-[${Metrics.fontSm}px]`;
             case "lg":
-                return `text-[${Metrics.fontMd}px]`;
+                return `text-[${Metrics.fontLg}px]`;
         }
-    }, [size]);
+    }, ["size"]);
 
     const checkIndicatorColor = useMemo(() => {
         switch (type) {
@@ -134,7 +138,7 @@ const Button = (props: StyledButtonProps) => {
             case "alert":
                 return Colors.white;
         }
-    }, [type]);
+    }, ["type"]);
 
     const checkIndicatorSize = useMemo(() => {
         switch (size) {
@@ -145,7 +149,7 @@ const Button = (props: StyledButtonProps) => {
             case "lg":
                 return 1;
         }
-    }, [size]);
+    }, ["size"]);
 
     const buttonClassName = `${checkButtonSize} ${checkButtonBG} rounded-[6px] px-[6px] flex flex-row items-center justify-center ${isLink ? "bg-transparent" : '' } ${buttonStyle}`;
     const textClassName = `${checkTextColor} ${checkTextSize} font-bold ${isLink ? 'text-sky-700 underline' : ''} ${textStyle}`;
@@ -169,9 +173,11 @@ const Button = (props: StyledButtonProps) => {
                     style={{ transform: [{ scale: checkIndicatorSize }] }}
                 />
             ) : null}
+            {leftIcon && leftIcon}
             <StyledText className={textClassName}>
                 {children}
             </StyledText>
+            {rightIcon && rightIcon}
         </StyledTouchableOpacity>
     );
 };
