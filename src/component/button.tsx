@@ -7,7 +7,6 @@ import {
 } from "react-native";
 import { styled } from "nativewind";
 import Colors from "../themes/colors";
-import Metrics from "../themes/metrics";
 export const StyledTouchableOpacity = styled(TouchableOpacity);
 export const StyledActivityIndicator = styled(ActivityIndicator);
 export const StyledText = styled(Text);
@@ -74,18 +73,18 @@ const Button = (props: StyledButtonProps) => {
         }
     };
 
-    const checkButtonSize = useMemo(() => {
+    const checkButtonSize =() => {
         switch (size) {
             case "sm":
-                return `h-[${Metrics.buttonSm}px]`;
+                return `h-[26px]`;
             case "md":
-                return `h-[${Metrics.buttonMd}px]`;
+                return `h-[36px]`;
             case "lg":
-                return `h-[${Metrics.buttonLg}px]`;
+                return `h-[48px]`;
         }
-    }, ["size"]);
+    };
 
-    const checkButtonBG = useMemo(() => {
+    const checkButtonBG = () => {
         if (disable) {
             switch (type) {
                 case "default":
@@ -105,9 +104,9 @@ const Button = (props: StyledButtonProps) => {
                     return "bg-red-600";
             }
         }
-    }, ["type", "disable"]);
+    };
 
-    const checkTextColor = useMemo(() => {
+    const checkTextColor = () => {
         switch (type) {
             case "default":
                 return "text-white";
@@ -116,18 +115,18 @@ const Button = (props: StyledButtonProps) => {
             case "alert":
                 return "text-white";
         }
-    }, ["type"]);
+    };
 
-    const checkTextSize = useMemo(() => {
+    const checkTextSize = () => {
         switch (size) {
             case "sm":
-                return `text-[${Metrics.fontXs}px]`;
+                return `text-sm`;
             case "md":
-                return `text-[${Metrics.fontSm}px]`;
+                return `text-base`;
             case "lg":
-                return `text-[${Metrics.fontLg}px]`;
+                return `text-lg`;
         }
-    }, ["size"]);
+    };
 
     const checkIndicatorColor = useMemo(() => {
         switch (type) {
@@ -138,7 +137,7 @@ const Button = (props: StyledButtonProps) => {
             case "alert":
                 return Colors.white;
         }
-    }, ["type"]);
+    },['type']);
 
     const checkIndicatorSize = useMemo(() => {
         switch (size) {
@@ -149,10 +148,10 @@ const Button = (props: StyledButtonProps) => {
             case "lg":
                 return 1;
         }
-    }, ["size"]);
+    },['size']);
 
-    const buttonClassName = `${checkButtonSize} ${checkButtonBG} rounded-[6px] px-[6px] flex flex-row items-center justify-center ${isLink ? "bg-transparent" : '' } ${buttonStyle}`;
-    const textClassName = `${checkTextColor} ${checkTextSize} font-bold ${isLink ? 'text-sky-700 underline' : ''} ${textStyle}`;
+    const buttonClassName = `${checkButtonSize()} ${checkButtonBG()} rounded-[6px] px-[6px] flex flex-row items-center justify-center ${isLink ? "bg-transparent" : '' } ${buttonStyle}`;
+    const textClassName = `${checkTextColor()} font-bold ${checkTextSize()} ${isLink ? 'text-sky-700 underline' : ''} ${textStyle}`;
 
     return (
         <StyledTouchableOpacity
