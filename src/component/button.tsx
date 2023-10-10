@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import {
     Text,
     TouchableOpacity,
@@ -10,7 +10,6 @@ import Colors from "../themes/colors";
 export const StyledTouchableOpacity = styled(TouchableOpacity);
 export const StyledActivityIndicator = styled(ActivityIndicator);
 export const StyledText = styled(Text);
-
 
 interface StyledButtonProps {
     loading?: boolean;
@@ -128,7 +127,7 @@ const Button = (props: StyledButtonProps) => {
         }
     };
 
-    const checkIndicatorColor = useMemo(() => {
+    const checkIndicatorColor = () => {
         switch (type) {
             case "default":
                 return Colors.white;
@@ -137,9 +136,9 @@ const Button = (props: StyledButtonProps) => {
             case "alert":
                 return Colors.white;
         }
-    },['type']);
+    };
 
-    const checkIndicatorSize = useMemo(() => {
+    const checkIndicatorSize = () => {
         switch (size) {
             case "sm":
                 return 0.6;
@@ -148,7 +147,7 @@ const Button = (props: StyledButtonProps) => {
             case "lg":
                 return 1;
         }
-    },['size']);
+    };
 
     const buttonClassName = `${checkButtonSize()} ${checkButtonBG()} rounded-[6px] px-[6px] flex flex-row items-center justify-center ${isLink ? "bg-transparent" : '' } ${buttonStyle}`;
     const textClassName = `${checkTextColor()} font-bold ${checkTextSize()} ${isLink ? 'text-sky-700 underline' : ''} ${textStyle}`;
@@ -167,9 +166,9 @@ const Button = (props: StyledButtonProps) => {
                 <StyledActivityIndicator
                     animating
                     size={"small"}
-                    color={checkIndicatorColor}
+                    color={checkIndicatorColor()}
                     className={"mr-[4px]"}
-                    style={{ transform: [{ scale: checkIndicatorSize }] }}
+                    style={{ transform: [{ scale: checkIndicatorSize() }] }}
                 />
             ) : null}
             {leftIcon && leftIcon}

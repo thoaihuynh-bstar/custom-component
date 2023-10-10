@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { Text as RNText, ColorValue } from "react-native";
 import { styled } from "nativewind";
 export const StyledText = styled(RNText);
@@ -13,7 +13,6 @@ interface StyledTextProps {
     center?: boolean;
     right?: boolean;
     size?: number;
-    color?: ColorValue;
     underline?: boolean;
     lineThrough?: boolean;
     numberOfLines?: number;
@@ -34,34 +33,29 @@ const Text = (props: StyledTextProps) => {
         center,
         right,
         size,
-        color,
         underline,
         lineThrough,
         numberOfLines = 0,
         onPress,
         onLongPress,
-        textStyle,
+        textStyle = '',
         children,
     } = props;
 
-    const textClassName = useMemo(
-        () => `
-        ${bold ? "font-bold" : {}}
-        ${semibold ? "font-semibold" : {}}
-        ${light ? "font-light" : {}}
-        ${black ? "text-black" : {}}
-        ${white ? "text-white" : {}}
-        ${italic ? "italic" : {}}
-        ${size ? `text-[${size}px]` : {}}
-        ${color ? `text-[${color}]` : {}}
-        ${underline ? "underline" : {}}
-        ${lineThrough ? "line-through" : {}}
-        ${center ? "text-center" : {}}
-        ${right ? "text-right" : {}}
+    const textClassName = `
+        ${bold ? "font-bold" : ''}
+        ${semibold ? "font-semibold" : ''}
+        ${light ? "font-light" : ''}
+        ${black ? "text-black" : ''}
+        ${white ? "text-white" : ''}
+        ${italic ? "italic" : ''}
+        ${size ? `text-[${size}px]` : ''}
+        ${underline ? "underline" : ''}
+        ${lineThrough ? "line-through" : ''}
+        ${center ? "text-center" : ''}
+        ${right ? "text-right" : ''}
         ${textStyle}
-      `,
-        []
-    );
+      `;
 
     const onTextPress = () => {
         onPress && onPress();
