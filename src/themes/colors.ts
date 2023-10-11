@@ -21,6 +21,8 @@ const Colors = {
       important: "#ff5b05",
       info: "#108ee9",
   },
+
+  
 };
 
 export default Colors;

@@ -1,9 +1,9 @@
-import React from "react";
-import { Text, TouchableOpacity, ActivityIndicator, GestureResponderEvent } from "react-native";
+import React, { useState } from "react";
+import { Text, Pressable, ActivityIndicator, GestureResponderEvent } from "react-native";
 import { styled } from "nativewind";
 import Colors from "../themes/colors";
 import { twMerge } from "tailwind-merge";
-export const StyledTouchableOpacity = styled(TouchableOpacity);
+export const StyledPressable = styled(Pressable);
 export const StyledActivityIndicator = styled(ActivityIndicator);
 export const StyledText = styled(Text);
 
@@ -26,6 +26,7 @@ interface StyledButtonProps {
 }
 
 const Button = (props: StyledButtonProps) => {
+    const [pressed, setPressed] = useState<boolean>(false);
     const {
         loading = false,
         buttonStyle = "",
@@ -35,7 +36,6 @@ const Button = (props: StyledButtonProps) => {
         type = "default",
         size = "lg",
         disable = false,
-        activeOpacity = 0.6,
         leftIcon = null,
         rightIcon = null,
         onPress,
@@ -58,109 +58,80 @@ const Button = (props: StyledButtonProps) => {
 
     const onButtonPressIn = (e: GestureResponderEvent) => {
         if (!disable) {
+            setPressed(true);
             onPressIn && onPressIn(e);
         }
     };
 
     const onButtonPressOut = (e: GestureResponderEvent) => {
         if (!disable) {
+            setPressed(false);
             onPressOut && onPressOut(e);
         }
     };
 
-    const checkButtonSize = () => {
-        switch (size) {
-            case "sm":
-                return `h-[26px]`;
-            case "md":
-                return `h-[36px]`;
-            case "lg":
-                return `h-[48px]`;
-        }
+    const SIZE_CLASS_NAME = {
+        sm: {
+            btnHeight: `h-[26px]`,
+            text: `text-sm`,
+            indicator: 0.6,
+        },
+        md: {
+            btnHeight: `h-[36px]`,
+            text: `text-base`,
+            indicator: 0.8,
+        },
+        lg: {
+            btnHeight: `h-[48px]`,
+            text: `text-lg`,
+            indicator: 1,
+        },
     };
 
-    const checkButtonBG = () => {
-        if (disable) {
-            switch (type) {
-                case "default":
-                    return `bg-sky-700/60`;
-                case "outline":
-                    return "bg-white/60 border border-sky-700";
-                case "alert":
-                    return "bg-red-600/60";
-            }
-        } else {
-            switch (type) {
-                case "default":
-                    return `bg-sky-700`;
-                case "outline":
-                    return "bg-white border border-sky-700";
-                case "alert":
-                    return "bg-red-600";
-            }
-        }
-    };
-
-    const checkTextColor = () => {
-        switch (type) {
-            case "default":
-                return "text-white";
-            case "outline":
-                return "text-sky-700";
-            case "alert":
-                return "text-white";
-        }
-    };
-
-    const checkTextSize = () => {
-        switch (size) {
-            case "sm":
-                return `text-sm`;
-            case "md":
-                return `text-base`;
-            case "lg":
-                return `text-lg`;
-        }
-    };
-
-    const checkIndicatorColor = () => {
-        switch (type) {
-            case "default":
-                return Colors.white;
-            case "outline":
-                return Colors.systemColor.info;
-            case "alert":
-                return Colors.white;
-        }
-    };
-
-    const checkIndicatorSize = () => {
-        switch (size) {
-            case "sm":
-                return 0.6;
-            case "md":
-                return 0.8;
-            case "lg":
-                return 1;
-        }
+    const TYPES_CLASS_NAME = {
+        default: {
+            bg: {
+                enable: `bg-sky-700`,
+                disable: `bg-sky-700/60`,
+            },
+            text: `text-white`,
+            indicatorColor: Colors.white,
+        },
+        outline: {
+            bg: {
+                enable: `bg-white border border-sky-700`,
+                disable: `bg-white border border-sky-700/60`,
+            },
+            text: `text-sky-700`,
+            indicatorColor: Colors.systemColor.info,
+        },
+        alert: {
+            bg: {
+                enable: `bg-red-600`,
+                disable: `bg-red-600/60`,
+            },
+            text: `text-white`,
+            indicatorColor: Colors.white,
+        },
     };
 
     const buttonClassName = twMerge(
-        `${checkButtonSize()} ${checkButtonBG()} rounded-[6px] px-[6px] flex flex-row items-center justify-center ${
+        `${SIZE_CLASS_NAME[size].btnHeight} ${
+            disable ? TYPES_CLASS_NAME[type].bg.disable : TYPES_CLASS_NAME[type].bg.enable
+        } rounded-[6px] px-[6px] flex flex-row items-center justify-center ${
             isLink ? "bg-transparent" : ""
-        } ${buttonStyle}`
+        } ${pressed ? "opacity-60" : ""} ${buttonStyle}`
     );
     const textClassName = twMerge(
-        `${checkTextColor()} font-bold ${checkTextSize()} ${
+        `${TYPES_CLASS_NAME[type].text} font-bold ${SIZE_CLASS_NAME[size].text} ${
             isLink ? "text-sky-700 underline" : ""
         } ${textStyle}`
     );
 
     return (
-        <StyledTouchableOpacity
+        <StyledPressable
             disabled={disable}
             className={buttonClassName}
-            activeOpacity={activeOpacity}
             onPress={onButtonPress}
             onLongPress={onButtonLongPress}
             onPressIn={onButtonPressIn}
@@ -170,15 +141,15 @@ const Button = (props: StyledButtonProps) => {
                 <StyledActivityIndicator
                     animating
                     size={"small"}
-                    color={checkIndicatorColor()}
+                    color={TYPES_CLASS_NAME[type].indicatorColor}
                     className={"mr-[4px]"}
-                    style={{ transform: [{ scale: checkIndicatorSize() }] }}
+                    style={{ transform: [{ scale: SIZE_CLASS_NAME[size].indicator }] }}
                 />
             ) : null}
             {leftIcon && leftIcon}
             <StyledText className={textClassName}>{children}</StyledText>
             {rightIcon && rightIcon}
-        </StyledTouchableOpacity>
+        </StyledPressable>
     );
 };
 

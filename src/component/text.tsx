@@ -46,7 +46,7 @@ const Text = (props: StyledTextProps) => {
     const checkTextSize = () => {
         switch (size) {
             case "sm":
-                return `text-[12px] `;
+                return `text-sm `;
             case "md":
                 return `text-[14px] `;
             case "lg":
