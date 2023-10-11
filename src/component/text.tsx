@@ -1,6 +1,7 @@
 import React from "react";
 import { Text as RNText, ColorValue } from "react-native";
 import { styled } from "nativewind";
+import { twMerge } from "tailwind-merge";
 export const StyledText = styled(RNText);
 
 interface StyledTextProps {
@@ -12,7 +13,7 @@ interface StyledTextProps {
     white?: boolean;
     center?: boolean;
     right?: boolean;
-    size?: number;
+    size?: "sm" | "md" | "lg";
     underline?: boolean;
     lineThrough?: boolean;
     numberOfLines?: number;
@@ -32,30 +33,41 @@ const Text = (props: StyledTextProps) => {
         white,
         center,
         right,
-        size,
+        size = "md",
         underline,
         lineThrough,
         numberOfLines = 0,
         onPress,
         onLongPress,
-        textStyle = '',
+        textStyle = "",
         children,
     } = props;
 
-    const textClassName = `
-        ${bold ? "font-bold" : ''}
-        ${semibold ? "font-semibold" : ''}
-        ${light ? "font-light" : ''}
-        ${black ? "text-black" : ''}
-        ${white ? "text-white" : ''}
-        ${italic ? "italic" : ''}
-        ${size ? `text-[${size}px]` : ''}
-        ${underline ? "underline" : ''}
-        ${lineThrough ? "line-through" : ''}
-        ${center ? "text-center" : ''}
-        ${right ? "text-right" : ''}
+    const checkTextSize = () => {
+        switch (size) {
+            case "sm":
+                return `text-[12px] `;
+            case "md":
+                return `text-[14px] `;
+            case "lg":
+                return `text-[16px] `;
+        }
+    };
+
+    const textClassName =twMerge(`
+        ${bold ? "font-bold" : ""}
+        ${semibold ? "font-semibold" : ""}
+        ${light ? "font-light" : ""}
+        ${black ? "text-black" : ""}
+        ${white ? "text-white" : ""}
+        ${italic ? "italic" : ""}
+        ${size ? checkTextSize() : ""}
+        ${underline ? "underline" : ""}
+        ${lineThrough ? "line-through" : ""}
+        ${center ? "text-center" : ""}
+        ${right ? "text-right" : ""}
         ${textStyle}
-      `;
+      `);
 
     const onTextPress = () => {
         onPress && onPress();
@@ -68,8 +80,8 @@ const Text = (props: StyledTextProps) => {
     return (
         <StyledText
             numberOfLines={numberOfLines}
-            onPress={onTextPress}
-            onLongPress={onTextLongPress}
+            onPress={onPress ? onTextPress : undefined}
+            onLongPress={onLongPress ? onTextLongPress : undefined}
             className={textClassName}
         >
             {children}

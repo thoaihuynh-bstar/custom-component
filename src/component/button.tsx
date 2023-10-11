@@ -1,12 +1,8 @@
 import React from "react";
-import {
-    Text,
-    TouchableOpacity,
-    ActivityIndicator,
-    GestureResponderEvent,
-} from "react-native";
+import { Text, TouchableOpacity, ActivityIndicator, GestureResponderEvent } from "react-native";
 import { styled } from "nativewind";
 import Colors from "../themes/colors";
+import { twMerge } from "tailwind-merge";
 export const StyledTouchableOpacity = styled(TouchableOpacity);
 export const StyledActivityIndicator = styled(ActivityIndicator);
 export const StyledText = styled(Text);
@@ -32,8 +28,8 @@ interface StyledButtonProps {
 const Button = (props: StyledButtonProps) => {
     const {
         loading = false,
-        buttonStyle = '',
-        textStyle = '',
+        buttonStyle = "",
+        textStyle = "",
         children,
         isLink = false,
         type = "default",
@@ -72,7 +68,7 @@ const Button = (props: StyledButtonProps) => {
         }
     };
 
-    const checkButtonSize =() => {
+    const checkButtonSize = () => {
         switch (size) {
             case "sm":
                 return `h-[26px]`;
@@ -149,8 +145,16 @@ const Button = (props: StyledButtonProps) => {
         }
     };
 
-    const buttonClassName = `${checkButtonSize()} ${checkButtonBG()} rounded-[6px] px-[6px] flex flex-row items-center justify-center ${isLink ? "bg-transparent" : '' } ${buttonStyle}`;
-    const textClassName = `${checkTextColor()} font-bold ${checkTextSize()} ${isLink ? 'text-sky-700 underline' : ''} ${textStyle}`;
+    const buttonClassName = twMerge(
+        `${checkButtonSize()} ${checkButtonBG()} rounded-[6px] px-[6px] flex flex-row items-center justify-center ${
+            isLink ? "bg-transparent" : ""
+        } ${buttonStyle}`
+    );
+    const textClassName = twMerge(
+        `${checkTextColor()} font-bold ${checkTextSize()} ${
+            isLink ? "text-sky-700 underline" : ""
+        } ${textStyle}`
+    );
 
     return (
         <StyledTouchableOpacity
@@ -172,9 +176,7 @@ const Button = (props: StyledButtonProps) => {
                 />
             ) : null}
             {leftIcon && leftIcon}
-            <StyledText className={textClassName}>
-                {children}
-            </StyledText>
+            <StyledText className={textClassName}>{children}</StyledText>
             {rightIcon && rightIcon}
         </StyledTouchableOpacity>
     );

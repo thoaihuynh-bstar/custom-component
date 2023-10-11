@@ -1,6 +1,6 @@
 {
   "name": "@huynhtrungthoai/custom-component",
-  "version": "0.0.50",
+  "version": "0.0.54",
   "description": "Implement Text input",
   "main": "index.tsx",
   "scripts": {},

@@ -11,6 +11,7 @@ import { styled } from "nativewind";
 import Text from "./text";
 import View from "./view";
 import Images from "../themes/images";
+import { twMerge } from "tailwind-merge";
 
 export const StyledInput = styled(RNTextInput);
 export const StyledTouchableOpacity = styled(TouchableOpacity);
@@ -85,20 +86,26 @@ const TextInput = (props: TextInputProps) => {
         onFocus,
         onBlur,
         onChangeValue,
-        onSubmitEditing
+        onSubmitEditing,
     } = props;
 
     const focusStyle = () => {
         if (isFocused) {
-            return 'bg-white border-gray-200'
+            return "bg-white border-gray-200";
         } else {
-            return 'bg-gray-100 border-gray-300'
+            return "bg-gray-100 border-gray-300";
         }
-    }
+    };
 
-    const containerClassName = `border px-[8px]  ${round ? "rounded-md" : ""} ${containerStyle} ${focusStyle()} ${disabled ? "text-stone-400 bg-gray-300 border-gray-400" : ""}`;
-    const inputClassName = `flex-1 grow border-1 min-h-[48px] border-sky-400 ${inputStyle}`;
-    const iconClassName = `h-[24px] w-[24px] ml-[4px] ${iconStyle}`;
+    const containerClassName = twMerge(
+        `border px-[8px] ${round ? "rounded-md" : ""} ${containerStyle} ${focusStyle()} ${
+            disabled ? "text-stone-400 bg-gray-300 border-gray-400" : ""
+        }`
+    );
+    const inputClassName = twMerge(
+        `flex-1 grow border-1 min-h-[48px] border-sky-400 ${inputStyle}`
+    );
+    const iconClassName = twMerge(`h-[24px] w-[24px] ml-[4px] ${iconStyle}`);
 
     // Input Text alignment
     const textAlign = topleft ? "left" : centerHorizontalText || center ? "center" : undefined;
@@ -125,8 +132,8 @@ const TextInput = (props: TextInputProps) => {
     };
 
     const onTextInputSubmitEditing = () => {
-        onSubmitEditing && onSubmitEditing()
-    }
+        onSubmitEditing && onSubmitEditing();
+    };
 
     return (
         <>
