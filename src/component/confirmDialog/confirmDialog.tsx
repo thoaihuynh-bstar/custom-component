@@ -2,6 +2,7 @@ import React, { forwardRef, useRef, useState } from "react";
 import { StyleSheet, KeyboardAvoidingView } from "react-native";
 import Modal from "react-native-modal";
 import { styled } from "nativewind";
+import { Metrics } from '../../themes'
 import { View, Button, Text } from "../../component";
 import { twMerge } from "tailwind-merge";
 
@@ -104,6 +105,7 @@ const ConfirmDialog = forwardRef((props: ConfirmDialogProps, ref: any) => {
                 statusBarTranslucent
                 animationInTiming={300}
                 animationOutTiming={300}
+                deviceHeight={Metrics.screenHeight + 80}
                 backdropTransitionInTiming={300}
                 backdropTransitionOutTiming={300}
                 onBackdropPress={onHideBackdrop}
