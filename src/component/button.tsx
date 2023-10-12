@@ -3,9 +3,9 @@ import { Text, Pressable, ActivityIndicator, GestureResponderEvent } from "react
 import { styled } from "nativewind";
 import Colors from "../themes/colors";
 import { twMerge } from "tailwind-merge";
-export const StyledPressable = styled(Pressable);
-export const StyledActivityIndicator = styled(ActivityIndicator);
-export const StyledText = styled(Text);
+const StyledPressable = styled(Pressable);
+const StyledActivityIndicator = styled(ActivityIndicator);
+const StyledText = styled(Text);
 
 interface StyledButtonProps {
     loading?: boolean;

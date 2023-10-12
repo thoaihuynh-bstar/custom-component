@@ -13,9 +13,9 @@ import View from "./view";
 import Images from "../themes/images";
 import { twMerge } from "tailwind-merge";
 
-export const StyledInput = styled(RNTextInput);
-export const StyledTouchableOpacity = styled(TouchableOpacity);
-export const StyledImage = styled(Image);
+const StyledInput = styled(RNTextInput);
+const StyledTouchableOpacity = styled(TouchableOpacity);
+const StyledImage = styled(Image);
 
 export interface TextInputProps {
     inputRef?: any;

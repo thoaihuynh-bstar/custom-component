@@ -2,7 +2,7 @@ import React from "react";
 import { Text as RNText, ColorValue } from "react-native";
 import { styled } from "nativewind";
 import { twMerge } from "tailwind-merge";
-export const StyledText = styled(RNText);
+const StyledText = styled(RNText);
 
 interface StyledTextProps {
     bold?: boolean;

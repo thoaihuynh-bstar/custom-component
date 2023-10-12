@@ -4,8 +4,8 @@ import { styled } from "nativewind";
 import { twMerge } from "tailwind-merge";
 import FastImage, { OnLoadEvent } from "react-native-fast-image";
 import { isUrl } from "../utils/stringUtils";
-export const StyledImage = styled(RNImage);
-export const StyledFastImage = styled(FastImage);
+const StyledImage = styled(RNImage);
+const StyledFastImage = styled(FastImage);
 
 interface StyledImageProps {
     source: string;

@@ -1,8 +1,8 @@
 import React from "react";
 import { View as RNView } from "react-native";
 import { styled } from "nativewind";
-export const StyledView = styled(RNView);
 import { twMerge } from "tailwind-merge";
+const StyledView = styled(RNView);
 
 interface StyledViewProps {
     row?: boolean;
