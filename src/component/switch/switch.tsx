@@ -2,7 +2,7 @@ import React from "react";
 import { Switch as RNSwitch, ColorValue } from "react-native";
 import { styled } from "nativewind";
 import { twMerge } from "tailwind-merge";
-import Colors from "../../themes/colors";
+import { Colors } from "../../themes";
 const StyledSwitch = styled(RNSwitch);
 
 export interface SwitchProps {

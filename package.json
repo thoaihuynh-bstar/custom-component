@@ -1,6 +1,6 @@
 {
   "name": "@huynhtrungthoai/custom-component",
-  "version": "0.0.70",
+  "version": "0.0.74",
   "description": "Implement touchable",
   "main": "index.ts",
   "scripts": {},
@@ -19,7 +19,8 @@
     "lodash": "*",
     "react-native": "*",
     "nativewind": "*",
-    "react-native-fast-image": "*"
+    "react-native-fast-image": "*",
+    "react-native-modal": "*"
   },
   "devDependencies": {
     "@types/jest": "^29.5.1",

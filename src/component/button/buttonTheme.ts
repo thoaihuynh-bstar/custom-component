@@ -1,4 +1,4 @@
-import Colors from "../../themes/colors";
+import { Colors } from "../../themes";
 
 export const SIZE_THEME = {
     sm: {
