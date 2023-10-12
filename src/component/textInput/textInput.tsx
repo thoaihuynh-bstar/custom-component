@@ -8,10 +8,11 @@ import {
     TextInput as RNTextInput,
 } from "react-native";
 import { styled } from "nativewind";
-import Text from "./text";
-import View from "./view";
-import Images from "../themes/images";
+import Text from "../text/text";
+import View from "../view/view";
+import Images from "../../themes/images";
 import { twMerge } from "tailwind-merge";
+import { TEXT_INPUT_FOCUS_THEME } from "./textInputTheme";
 
 const StyledInput = styled(RNTextInput);
 const StyledTouchableOpacity = styled(TouchableOpacity);
@@ -89,23 +90,15 @@ const TextInput = (props: TextInputProps) => {
         onSubmitEditing,
     } = props;
 
-    const focusStyle = () => {
-        if (isFocused) {
-            return "bg-white border-gray-200";
-        } else {
-            return "bg-gray-100 border-gray-300";
-        }
-    };
-
     const containerClassName = twMerge(
-        `border px-[8px] ${round ? "rounded-md" : ""} ${containerStyle} ${focusStyle()} ${
-            disabled ? "text-stone-400 bg-gray-300 border-gray-400" : ""
-        }`
+        `border px-[8px]`,
+        round ? "rounded-md" : "",
+        containerStyle,
+        isFocused ? TEXT_INPUT_FOCUS_THEME.focus : TEXT_INPUT_FOCUS_THEME.unFocus,
+        disabled ? "text-stone-400 bg-gray-300 border-gray-400" : ""
     );
-    const inputClassName = twMerge(
-        `flex-1 grow border-1 min-h-[48px] border-sky-400 ${inputStyle}`
-    );
-    const iconClassName = twMerge(`h-[24px] w-[24px] ml-[4px] ${iconStyle}`);
+    const inputClassName = twMerge(`flex-1 grow border-1 min-h-[48px] border-sky-400`, inputStyle);
+    const iconClassName = twMerge(`h-[24px] w-[24px] ml-[4px]`, iconStyle);
 
     // Input Text alignment
     const textAlign = topleft ? "left" : centerHorizontalText || center ? "center" : undefined;
@@ -138,7 +131,9 @@ const TextInput = (props: TextInputProps) => {
     return (
         <>
             {label && (
-                <Text textStyle={`text-[12px] mb-[6px] mt-[8px] ${labelStyle}`}>{label}</Text>
+                <Text textStyle={twMerge(`text-[12px] mb-[6px] mt-[8px]`, labelStyle)}>
+                    {label}
+                </Text>
             )}
             <View row centerVertical viewStyle={containerClassName}>
                 {leftComponent && leftComponent}

@@ -1,10 +1,11 @@
 import React from "react";
-import { Text as RNText, ColorValue } from "react-native";
+import { Text as RNText } from "react-native";
 import { styled } from "nativewind";
 import { twMerge } from "tailwind-merge";
+import { TEXT_SIZE_THEME } from "./textTheme";
 const StyledText = styled(RNText);
 
-interface StyledTextProps {
+export interface TextProps {
     bold?: boolean;
     semibold?: boolean;
     light?: boolean;
@@ -22,7 +23,7 @@ interface StyledTextProps {
     children?: React.ReactNode | string;
 }
 
-const Text = (props: StyledTextProps) => {
+const Text = (props: TextProps) => {
     const {
         bold,
         semibold,
@@ -41,30 +42,19 @@ const Text = (props: StyledTextProps) => {
         children,
     } = props;
 
-    const checkTextSize = () => {
-        switch (size) {
-            case "sm":
-                return `text-sm `;
-            case "md":
-                return `text-[14px] `;
-            case "lg":
-                return `text-[16px] `;
-        }
-    };
-
-    const textClassName =twMerge(`
-        ${bold ? "font-bold" : ""}
-        ${semibold ? "font-semibold" : ""}
-        ${light ? "font-light" : ""}
-        ${white ? "text-white" : ""}
-        ${italic ? "italic" : ""}
-        ${size ? checkTextSize() : ""}
-        ${underline ? "underline" : ""}
-        ${lineThrough ? "line-through" : ""}
-        ${center ? "text-center" : ""}
-        ${right ? "text-right" : ""}
-        ${textStyle}
-      `);
+    const textClassName = twMerge(
+        bold ? "font-bold" : "",
+        semibold ? "font-semibold" : "",
+        light ? "font-light" : "",
+        white ? "text-white" : "",
+        italic ? "italic" : "",
+        size ? TEXT_SIZE_THEME[size] : "",
+        underline ? "underline" : "",
+        lineThrough ? "line-through" : "",
+        center ? "text-center" : "",
+        right ? "text-right" : "",
+        textStyle
+    );
 
     const onTextPress = () => {
         onPress && onPress();

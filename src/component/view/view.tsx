@@ -4,7 +4,7 @@ import { styled } from "nativewind";
 import { twMerge } from "tailwind-merge";
 const StyledView = styled(RNView);
 
-interface StyledViewProps {
+export interface ViewProps {
     row?: boolean;
     wrap?: boolean;
     shrink?: boolean;
@@ -16,7 +16,7 @@ interface StyledViewProps {
     children?: JSX.Element | JSX.Element[] | React.ReactNode | React.ReactNodeArray;
 }
 
-const View = (props: StyledViewProps) => {
+const View = (props: ViewProps) => {
     const {
         row = false,
         wrap = false,
@@ -29,16 +29,16 @@ const View = (props: StyledViewProps) => {
         children,
     } = props;
 
-    const viewClassName = twMerge(`
-        ${row ? "flex-row" : ""}
-        ${wrap ? "flex-wrap" : ""}
-        ${shrink ? "shrink" : ""}
-        ${center ? "justify-center items-center" : ""}
-        ${centerHorizontal ? "justify-center" : ""}
-        ${centerVertical ? "items-center" : ""}
-        ${flex ? "flex-1" : ""}
-        ${viewStyle}
-      `);
+    const viewClassName = twMerge(
+        row ? "flex-row" : "",
+        wrap ? "flex-wrap" : "",
+        shrink ? "shrink" : "",
+        center ? "justify-center items-center" : "",
+        centerHorizontal ? "justify-center" : "",
+        centerVertical ? "items-center" : "",
+        flex ? "flex-1" : "",
+        viewStyle
+    );
 
     return <StyledView className={viewClassName}>{children}</StyledView>;
 };

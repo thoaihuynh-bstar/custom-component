@@ -1,13 +1,14 @@
-import React, { JSXElementConstructor, ReactElement, useState } from "react";
+import React, { JSXElementConstructor, ReactElement } from "react";
 import { Pressable } from "react-native";
 import { styled } from "nativewind";
-import Image from "./image";
-import Text from "./text";
+import Image from "../image/image";
+import Text from "../text/text";
 import { twMerge } from "tailwind-merge";
-import Images from "../themes/images";
+import Images from "../../themes/images";
+import { CHECKBOX_SIZE_THEME } from "./checkBoxTheme";
 const StyledPressable = styled(Pressable);
 
-interface StyledButtonProps {
+export interface CheckBoxProps {
     disable?: boolean;
     checked?: boolean;
     title?: string | ReactElement<{}, string | JSXElementConstructor<any>>;
@@ -22,7 +23,7 @@ interface StyledButtonProps {
     onPress?: () => void;
 }
 
-const CheckBox = (props: StyledButtonProps) => {
+const CheckBox = (props: CheckBoxProps) => {
     const {
         disable = false,
         checked = false,
@@ -38,22 +39,16 @@ const CheckBox = (props: StyledButtonProps) => {
         onPress,
     } = props;
 
-    const SIZE_CLASS_NAME = {
-        sm: "w-4 h-4",
-        md: "w-5 h-5",
-        lg: "w-6 h-6",
-    };
-
-    const buttonClassName = twMerge(`flex-row items-center`, wrapperStyle);
-    const textClassName = twMerge(`ml-[4px]`, textStyle);
-    const checkedClassName = twMerge(SIZE_CLASS_NAME[size], checkedIconStyle);
-    const unCheckedClassName = twMerge(SIZE_CLASS_NAME[size], unCheckedIconStyle);
-
     const onCheckBoxPress = () => {
         if (!disable) {
             onPress && onPress();
         }
     };
+
+    const buttonClassName = twMerge(`flex-row items-center`, wrapperStyle);
+    const textClassName = twMerge(`ml-[4px]`, textStyle);
+    const checkedClassName = twMerge(CHECKBOX_SIZE_THEME[size], checkedIconStyle);
+    const unCheckedClassName = twMerge(CHECKBOX_SIZE_THEME[size], unCheckedIconStyle);
 
     return (
         <StyledPressable disabled={disable} className={buttonClassName} onPress={onCheckBoxPress}>
