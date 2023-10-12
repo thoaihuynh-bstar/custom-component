@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Text, Pressable, ActivityIndicator, GestureResponderEvent } from "react-native";
+import { Pressable, ActivityIndicator, GestureResponderEvent } from "react-native";
 import { styled } from "nativewind";
 import { twMerge } from "tailwind-merge";
+import { Text } from "../../component";
 import { SIZE_THEME, TYPES_THEME } from "./buttonTheme";
 const StyledPressable = styled(Pressable);
 const StyledActivityIndicator = styled(ActivityIndicator);
-const StyledText = styled(Text);
 
 export interface ButtonProps {
     loading?: boolean;
@@ -105,7 +105,7 @@ const Button = (props: ButtonProps) => {
                 />
             ) : null}
             {leftIcon && leftIcon}
-            <StyledText className={textClassName}>{children}</StyledText>
+            <Text textStyle={textClassName}>{children}</Text>
             {rightIcon && rightIcon}
         </StyledPressable>
     );

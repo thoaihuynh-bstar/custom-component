@@ -1,8 +1,7 @@
 import React, { JSXElementConstructor, ReactElement } from "react";
 import { Pressable } from "react-native";
 import { styled } from "nativewind";
-import Image from "../image/image";
-import Text from "../text/text";
+import { Text, Image } from "../../component";
 import { twMerge } from "tailwind-merge";
 import Images from "../../themes/images";
 import { CHECKBOX_SIZE_THEME } from "./checkBoxTheme";
@@ -11,7 +10,7 @@ const StyledPressable = styled(Pressable);
 export interface CheckBoxProps {
     disable?: boolean;
     checked?: boolean;
-    title?: string | ReactElement<{}, string | JSXElementConstructor<any>>;
+    title?: React.ReactNode;
     checkedTitle?: string | ReactElement<{}, string | JSXElementConstructor<any>>;
     checkedIcon?: string | number;
     unCheckedIcon?: string | number;

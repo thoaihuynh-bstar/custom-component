@@ -8,8 +8,7 @@ import {
     TextInput as RNTextInput,
 } from "react-native";
 import { styled } from "nativewind";
-import Text from "../text/text";
-import View from "../view/view";
+import { Text, View } from "../../component";
 import Images from "../../themes/images";
 import { twMerge } from "tailwind-merge";
 import { TEXT_INPUT_FOCUS_THEME } from "./textInputTheme";
@@ -20,7 +19,7 @@ const StyledImage = styled(Image);
 
 export interface TextInputProps {
     inputRef?: any;
-    error?: string;
+    error?: string | JSX.Element | JSX.Element[];
     value: string;
     placeholder?: string;
     label?: string;

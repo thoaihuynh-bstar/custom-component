@@ -20,7 +20,7 @@ export interface TextProps {
     onPress?: () => void;
     onLongPress?: () => void;
     textStyle?: string; // NativeWind className
-    children?: React.ReactNode | string;
+    children?: React.ReactNode;
 }
 
 const Text = (props: TextProps) => {

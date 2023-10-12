@@ -1,6 +1,6 @@
 {
   "name": "@huynhtrungthoai/custom-component",
-  "version": "0.0.67",
+  "version": "0.0.70",
   "description": "Implement touchable",
   "main": "index.ts",
   "scripts": {},
