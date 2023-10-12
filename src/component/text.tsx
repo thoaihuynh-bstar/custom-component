@@ -9,7 +9,6 @@ interface StyledTextProps {
     semibold?: boolean;
     light?: boolean;
     italic?: boolean;
-    black?: boolean;
     white?: boolean;
     center?: boolean;
     right?: boolean;
@@ -29,7 +28,6 @@ const Text = (props: StyledTextProps) => {
         semibold,
         light,
         italic,
-        black,
         white,
         center,
         right,
@@ -58,7 +56,6 @@ const Text = (props: StyledTextProps) => {
         ${bold ? "font-bold" : ""}
         ${semibold ? "font-semibold" : ""}
         ${light ? "font-light" : ""}
-        ${black ? "text-black" : ""}
         ${white ? "text-white" : ""}
         ${italic ? "italic" : ""}
         ${size ? checkTextSize() : ""}

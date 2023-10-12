@@ -5,6 +5,7 @@ import Text from "./src/component/text";
 import View from "./src/component/view";
 import TextInput from "./src/component/textInput";
 import CheckBox from "./src/component/checkBox";
+import Image from './src/component/image'
 
-export {  Colors, Metrics, Button, Text, View, TextInput, CheckBox };
+export {  Colors, Metrics, Button, Text, View, TextInput, CheckBox, Image };
 

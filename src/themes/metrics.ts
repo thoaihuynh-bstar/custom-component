@@ -19,19 +19,12 @@ const Metrics = {
     buttonMd: 36,
     buttonLg: 48,
 
-    // Spacing horizontal
-    hSpacingXs: 4,
-    hSpacingSm: 8,
-    hSpacingMd: 12,
-    hSpacingLg: 16,
-    hSpacingXl: 20,
-
-    // Spacing vertical
-    vSpacingXs: 4,
-    vSpacingSm: 8,
-    vSpacingMd: 12,
-    vSpacingLg: 16,
-    vSpacingXl: 20,
+    // Spacing
+    spacingXs: 4,
+    spacingSm: 8,
+    spacingMd: 12,
+    spacingLg: 16,
+    spacingXl: 20,
 
     // Border width
     borderWidthSm: 0.5,

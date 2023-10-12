@@ -1,7 +1,7 @@
 {
   "name": "@huynhtrungthoai/custom-component",
-  "version": "0.0.54",
-  "description": "Implement Text input",
+  "version": "0.0.58",
+  "description": "Implement Image",
   "main": "index.tsx",
   "scripts": {},
   "keywords": [
@@ -18,7 +18,8 @@
   "peerDependencies": {
     "lodash": "*",
     "react-native": "*",
-    "nativewind": "*"
+    "nativewind": "*",
+    "react-native-fast-image": "*"
   },
   "devDependencies": {
     "@types/jest": "^29.5.1",

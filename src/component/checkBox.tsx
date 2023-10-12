@@ -1,38 +1,43 @@
-import React, { useState } from "react";
-import { Image, TouchableOpacity } from "react-native";
+import React, { JSXElementConstructor, ReactElement, useState } from "react";
+import { TouchableOpacity } from "react-native";
 import { styled } from "nativewind";
-import View from "./view";
+import Image from "./image";
 import Text from "./text";
 import { twMerge } from "tailwind-merge";
 import Images from "../themes/images";
-export const StyledImage = styled(Image);
 export const StyledTouchableOpacity = styled(TouchableOpacity);
 
 interface StyledButtonProps {
     disable?: boolean;
-    isSelected?: boolean;
+    checked?: boolean;
     activeOpacity?: number;
-    title?: string;
+    title?: string | ReactElement<{}, string | JSXElementConstructor<any>>;
+    checkedTitle?: string | ReactElement<{}, string | JSXElementConstructor<any>>;
+    checkedIcon?: string | number;
+    unCheckedIcon?: string | number;
     size?: "sm" | "md" | "lg";
     textStyle?: string; // NativeWind className
-    containerStyle?: string; // NativeWind className
+    wrapperStyle?: string; // NativeWind className
     onPress?: () => void;
 }
 
 const CheckBox = (props: StyledButtonProps) => {
     const {
         disable = false,
-        isSelected = false,
+        checked = false,
         activeOpacity = 0.6,
         title,
+        checkedTitle,
+        checkedIcon,
+        unCheckedIcon,
         size = "md",
         textStyle = "",
-        containerStyle = "",
+        wrapperStyle = "",
         onPress,
     } = props;
 
-    const buttonClassName = twMerge(`flex-row items-center ${containerStyle}`);
-    const textClassName = twMerge(`ml-[4px] ${textStyle} text-success`);
+    const buttonClassName = twMerge(`flex-row items-center ${wrapperStyle}`);
+    const textClassName = twMerge(`ml-[4px] ${textStyle}`);
 
     const onCheckBoxPress = () => {
         if (!disable) {
@@ -58,12 +63,15 @@ const CheckBox = (props: StyledButtonProps) => {
             activeOpacity={activeOpacity}
             onPress={onCheckBoxPress}
         >
-            {isSelected ? (
-                <StyledImage source={Images.icCheck} className={checkCheckBoxSize()} />
+            {checked ? (
+                <Image source={checkedIcon || Images.icCheck} imageStyle={checkCheckBoxSize()} />
             ) : (
-                <StyledImage source={Images.icUnCheck} className={checkCheckBoxSize()} />
+                <Image
+                    source={unCheckedIcon || Images.icUnCheck} imageStyle={checkCheckBoxSize()} />
             )}
-            {title ? <Text textStyle={textClassName}>{title}</Text> : null}
+            {title ? (
+                <Text textStyle={textClassName}>{(checked && checkedTitle) || title}</Text>
+            ) : null}
         </StyledTouchableOpacity>
     );
 };

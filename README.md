@@ -10,6 +10,10 @@
 
 - ```import { } from "@huynhtrungthoai/custom-component";```
 
+## Required
+- ```nativewind```
+- ```lodash```
+- ```react-native-fast-image```
 
 ## Components
 - ```Button```

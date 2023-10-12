@@ -11,9 +11,7 @@ interface StyledViewProps {
     center?: boolean;
     centerHorizontal?: boolean;
     centerVertical?: boolean;
-    fillHeight?: boolean;
-    fillWidth?: boolean;
-    fillParent?: boolean;
+    flex?: boolean;
     viewStyle?: string; // NativeWind className
     children?: JSX.Element | JSX.Element[] | React.ReactNode | React.ReactNodeArray;
 }
@@ -26,9 +24,7 @@ const View = (props: StyledViewProps) => {
         center = false,
         centerHorizontal = false,
         centerVertical = false,
-        fillHeight = false,
-        fillWidth = false,
-        fillParent = false,
+        flex = false,
         viewStyle,
         children,
     } = props;
@@ -40,9 +36,7 @@ const View = (props: StyledViewProps) => {
         ${center ? "justify-center items-center" : ""}
         ${centerHorizontal ? "justify-center" : ""}
         ${centerVertical ? "items-center" : ""}
-        ${fillHeight ? "flex-1" : ""}
-        ${fillWidth ? "self-stretch grow shrink" : ""}
-        ${fillParent ? "flex-1 w-full" : ""}
+        ${flex ? "flex-1" : ""}
         ${viewStyle}
       `);
 
