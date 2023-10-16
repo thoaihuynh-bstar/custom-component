@@ -1,7 +1,7 @@
 {
   "name": "@huynhtrungthoai/custom-component",
-  "version": "0.0.79",
-  "description": "Custom component",
+  "version": "0.0.80",
+  "description": "Refactor",
   "main": "index.ts",
   "scripts": {},
   "keywords": [

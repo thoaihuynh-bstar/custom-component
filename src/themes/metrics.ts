@@ -39,7 +39,7 @@ const Metrics = {
 
     // Icon size
     iconXs: 16,
-    icSm: 20,
+    iconSm: 20,
     iconMd: 24,
     iconLg: 32,
 
