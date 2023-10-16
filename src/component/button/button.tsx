@@ -12,7 +12,7 @@ import { omit } from "lodash";
 import { styles } from "./style";
 import { Text } from '../../component'
 
-export interface ButtonProps {
+interface ButtonProps {
     loading?: boolean;
     disable?: boolean;
     buttonStyle?: StyleProp<ViewStyle>;
