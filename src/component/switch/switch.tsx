@@ -1,9 +1,6 @@
 import React from "react";
 import { Switch as RNSwitch, ColorValue } from "react-native";
-import { styled } from "nativewind";
-import { twMerge } from "tailwind-merge";
 import { Colors } from "../../themes";
-const StyledSwitch = styled(RNSwitch);
 
 export interface SwitchProps {
     disable?: boolean;
@@ -32,11 +29,8 @@ const Switch = (props: SwitchProps) => {
         onToggle && onToggle(value);
     };
 
-    const switchClassName = twMerge(``);
-
     return (
-        <StyledSwitch
-            className={switchClassName}
+        <RNSwitch
             trackColor={{ false: disableTrackColor, true: enabledTrackColor }}
             thumbColor={disable ? disableThumbColor : enabledThumbColor}
             ios_backgroundColor={disableTrackColor}
@@ -47,4 +41,4 @@ const Switch = (props: SwitchProps) => {
     );
 };
 
-export default styled(Switch);
+export default Switch;

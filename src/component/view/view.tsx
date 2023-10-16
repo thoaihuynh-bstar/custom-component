@@ -1,10 +1,7 @@
 import React from "react";
-import { View as RNView } from "react-native";
-import { styled } from "nativewind";
-import { twMerge } from "tailwind-merge";
-const StyledView = styled(RNView);
+import { View as RNView, StyleProp, StyleSheet, ViewStyle } from "react-native";
 
-export interface ViewProps {
+interface ViewProps {
     row?: boolean;
     wrap?: boolean;
     shrink?: boolean;
@@ -12,7 +9,7 @@ export interface ViewProps {
     centerHorizontal?: boolean;
     centerVertical?: boolean;
     flex?: boolean;
-    viewStyle?: string; // NativeWind className
+    viewStyle?: StyleProp<ViewStyle>; // NativeWind className
     children?: JSX.Element | JSX.Element[] | React.ReactNode | React.ReactNodeArray;
 }
 
@@ -29,18 +26,18 @@ const View = (props: ViewProps) => {
         children,
     } = props;
 
-    const viewClassName = twMerge(
-        row ? "flex-row" : "",
-        wrap ? "flex-wrap" : "",
-        shrink ? "shrink" : "",
-        center ? "justify-center items-center" : "",
-        centerHorizontal ? "justify-center" : "",
-        centerVertical ? "items-center" : "",
-        flex ? "flex-1" : "",
-        viewStyle
-    );
+    const _viewStyle = StyleSheet.create([
+        { ...(row && { flexDirection: "row" }) },
+        { ...(wrap && { flexWrap: "wrap" }) },
+        { ...(shrink && { flexShrink: 1 }) },
+        { ...(center && { justifyContent: "center", alignItems: "center" }) },
+        { ...(centerHorizontal && { alignItems: "center" }) },
+        { ...(centerVertical && { justifyContent: "center" }) },
+        { ...(flex && { flex: 1 }) },
+        viewStyle,
+    ]);
 
-    return <StyledView className={viewClassName}>{children}</StyledView>;
+    return <RNView style={_viewStyle}>{children}</RNView>;
 };
 
-export default styled(View);
+export default View;

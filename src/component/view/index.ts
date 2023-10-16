@@ -1,4 +1,3 @@
-import View, { ViewProps } from "./view";
+import View from "./view";
 
 export { View };
-export type { ViewProps };

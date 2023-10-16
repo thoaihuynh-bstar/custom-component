@@ -1,4 +1,3 @@
-import Touchable, { TouchableProps } from "./touchable";
+import Touchable from "./touchable";
 
 export { Touchable };
-export type { TouchableProps };

@@ -6,16 +6,16 @@ import {
     KeyboardType,
     TouchableOpacity,
     TextInput as RNTextInput,
+    ImageStyle,
+    ViewStyle,
+    StyleProp,
+    TextStyle,
+    StyleSheet,
 } from "react-native";
-import { styled } from "nativewind";
 import { Text, View } from "../../component";
+import { Metrics } from "../../themes";
 import Images from "../../themes/images";
-import { twMerge } from "tailwind-merge";
-import { TEXT_INPUT_FOCUS_THEME } from "./textInputTheme";
-
-const StyledInput = styled(RNTextInput);
-const StyledTouchableOpacity = styled(TouchableOpacity);
-const StyledImage = styled(Image);
+import { TEXT_INPUT_FOCUS_THEME, styles } from "./style";
 
 export interface TextInputProps {
     inputRef?: any;
@@ -40,10 +40,10 @@ export interface TextInputProps {
     showClearAll?: boolean;
     round?: boolean;
     textColor?: ColorValue;
-    containerStyle?: string; // NativeWind className
-    labelStyle?: string; // NativeWind className
-    inputStyle?: string; // NativeWind className
-    iconStyle?: string; // NativeWind className
+    containerStyle?: StyleProp<ViewStyle>;
+    titleStyle?: StyleProp<TextStyle>;
+    inputStyle?: StyleProp<TextStyle>;
+    iconStyle?: StyleProp<ImageStyle>;
     onFocus?: () => void;
     onBlur?: () => void;
     onChangeValue: (value: string) => void;
@@ -79,25 +79,23 @@ const TextInput = (props: TextInputProps) => {
         showClearAll = false,
         round = false,
         textColor = "#000000",
-        labelStyle = "", // NativeWind className
-        containerStyle = "", // NativeWind className
-        inputStyle = "", // NativeWind className
-        iconStyle = "", // NativeWind className
+        titleStyle,
+        containerStyle,
+        inputStyle,
+        iconStyle,
         onFocus,
         onBlur,
         onChangeValue,
         onSubmitEditing,
     } = props;
 
-    const containerClassName = twMerge(
-        `border px-[8px]`,
-        round ? "rounded-md" : "",
+    const _containerStyle = StyleSheet.flatten([
+        styles.containerStyle,
+        round && { borderRadius: Metrics.radiusSm },
         containerStyle,
         isFocused ? TEXT_INPUT_FOCUS_THEME.focus : TEXT_INPUT_FOCUS_THEME.unFocus,
-        disabled ? "text-stone-400 bg-gray-300 border-gray-400" : ""
-    );
-    const inputClassName = twMerge(`flex-1 grow border-1 min-h-[48px] border-sky-400`, inputStyle);
-    const iconClassName = twMerge(`h-[24px] w-[24px] ml-[4px]`, iconStyle);
+        disabled && styles.disableInput,
+    ]);
 
     // Input Text alignment
     const textAlign = topleft ? "left" : centerHorizontalText || center ? "center" : undefined;
@@ -129,14 +127,10 @@ const TextInput = (props: TextInputProps) => {
 
     return (
         <>
-            {label && (
-                <Text textStyle={twMerge(`text-[12px] mb-[6px] mt-[8px]`, labelStyle)}>
-                    {label}
-                </Text>
-            )}
-            <View row centerVertical viewStyle={containerClassName}>
+            {label && <Text textStyle={[styles.titleStyle, titleStyle]}>{label}</Text>}
+            <View row centerVertical viewStyle={_containerStyle}>
                 {leftComponent && leftComponent}
-                <StyledInput
+                <RNTextInput
                     ref={inputRef}
                     value={value}
                     autoFocus={autoFocus}
@@ -153,35 +147,35 @@ const TextInput = (props: TextInputProps) => {
                     multiline={!isPassword && multiline}
                     textAlignVertical={textAlignVertical}
                     placeholderTextColor={placeholderTextColor}
-                    className={inputClassName} // NativeWind className
+                    style={[styles.inputStyle, inputStyle]}
                     secureTextEntry={!showPassword && isPassword}
                 />
                 {!isEmpty(value) && showClearAll && (
                     <TouchableOpacity onPress={onClearAll}>
-                        <StyledImage source={Images.icClose} className={iconClassName} />
+                        <Image source={Images.icClose} style={[styles.iconStyle, iconStyle]} />
                     </TouchableOpacity>
                 )}
                 {isPassword && (
-                    <StyledTouchableOpacity
+                    <TouchableOpacity
                         activeOpacity={0.6}
                         className={"ml-[4px]"}
                         onPress={toggleShowPassword}
                     >
-                        <StyledImage
+                        <Image
                             source={showPassword ? Images.icEye : Images.icEyeOff}
-                            className={iconClassName}
+                            style={[styles.iconStyle, iconStyle]}
                         />
-                    </StyledTouchableOpacity>
+                    </TouchableOpacity>
                 )}
                 {rightComponent && rightComponent}
             </View>
             {error && (
-                <View viewStyle={"flex-row py-[8px]"}>
-                    <Text textStyle={"text-red-500"}>{error}</Text>
+                <View viewStyle={styles.alertContainer}>
+                    <Text textStyle={styles.titleStyle}>{error}</Text>
                 </View>
             )}
         </>
     );
 };
 
-export default styled(TextInput);
+export default TextInput;

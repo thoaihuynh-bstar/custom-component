@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import { Pressable, GestureResponderEvent } from "react-native";
-import { styled } from "nativewind";
-import { twMerge } from "tailwind-merge";
-const StyledPressable = styled(Pressable);
+import { Pressable, GestureResponderEvent, StyleSheet } from "react-native";
 
 export interface TouchableProps {
     buttonStyle?: string;
@@ -50,26 +47,26 @@ const Touchable = (props: TouchableProps) => {
         onPressOut && onPressOut(e);
     };
 
-    const buttonClassName = twMerge(
-        center ? "justify-center items-center" : "",
-        row ? "flex-row" : "",
-        centerHorizontal ? "justify-center" : "",
-        centerVertical ? "items-center" : "",
+    const _containerStyle = StyleSheet.flatten([
+        { ...(row && { flexDirection: "row" }) },
+        { ...(center && { justifyContent: "center", alignItems: "center" }) },
+        { ...(centerHorizontal && { alignItems: "center" }) },
+        { ...(centerVertical && { justifyContent: "center" }) },
         buttonStyle,
-        pressed ? "opacity-60" : ""
-    );
+        { ...(pressed && { opacity: 0.6 }) },
+    ]);
 
     return (
-        <StyledPressable
-            className={buttonClassName}
+        <Pressable
+            style={_containerStyle}
             onPress={onButtonPress}
             onLongPress={onButtonLongPress}
             onPressIn={onButtonPressIn}
             onPressOut={onButtonPressOut}
         >
             {children}
-        </StyledPressable>
+        </Pressable>
     );
 };
 
-export default styled(Touchable);
+export default Touchable;
