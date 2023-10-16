@@ -1,22 +1,26 @@
 import React, { useState } from "react";
-import { Pressable, ActivityIndicator, GestureResponderEvent } from "react-native";
-import { styled } from "nativewind";
-import { twMerge } from "tailwind-merge";
-import { Text } from "../../component";
-import { SIZE_THEME, TYPES_THEME } from "./buttonTheme";
-const StyledPressable = styled(Pressable);
-const StyledActivityIndicator = styled(ActivityIndicator);
+import {
+    Pressable,
+    ActivityIndicator,
+    GestureResponderEvent,
+    StyleProp,
+    ViewStyle,
+    TextStyle,
+    StyleSheet
+} from "react-native";
+import { omit } from "lodash";
+import { styles } from "./style";
+import { Text } from '../../component'
 
 export interface ButtonProps {
     loading?: boolean;
     disable?: boolean;
-    buttonStyle?: string;
-    textStyle?: string;
+    buttonStyle?: StyleProp<ViewStyle>;
+    textStyle?: StyleProp<TextStyle>;
     activeOpacity?: number;
-    isLink?: boolean;
     children: React.ReactNode;
     type?: "default" | "outline" | "alert";
-    size?: "sm" | "md" | "lg";
+    size?: "small" | "medium" | "large";
     leftIcon?: React.ReactNode;
     rightIcon?: React.ReactNode;
     onPress?: (e: GestureResponderEvent) => void;
@@ -29,12 +33,11 @@ const Button = (props: ButtonProps) => {
     const [pressed, setPressed] = useState<boolean>(false);
     const {
         loading = false,
-        buttonStyle = "",
-        textStyle = "",
+        buttonStyle,
+        textStyle,
         children,
-        isLink = false,
         type = "default",
-        size = "lg",
+        size = "large",
         disable = false,
         leftIcon = null,
         rightIcon = null,
@@ -70,45 +73,39 @@ const Button = (props: ButtonProps) => {
         }
     };
 
-    const buttonClassName = twMerge(
-        `rounded-[6px] px-[6px] flex flex-row items-center justify-center`,
-        SIZE_THEME[size].btnHeight,
-        disable ? TYPES_THEME[type].bg.disable : TYPES_THEME[type].bg.enable,
-        isLink ? "bg-transparent" : "",
-        pressed ? "opacity-60" : "",
-        buttonStyle
-    );
-    const textClassName = twMerge(
-        `font-bold`,
-        TYPES_THEME[type].text,
-        SIZE_THEME[size].text,
-        isLink ? "text-sky-700 underline" : "",
-        textStyle
-    );
+    const _buttonStyle = StyleSheet.flatten([
+        styles.buttonContainer,
+        styles[`${size}Button`],
+        styles[`${type}Background`],
+        { ...(pressed && { opacity: 0.6 }) },
+        buttonStyle,
+    ]);
+
+    const _textStyle = [styles[`${size}Text`], styles[`${type}TextColor`], textStyle];
 
     return (
-        <StyledPressable
+        <Pressable
+            {...omit(props, ["children"])}
             disabled={disable}
-            className={buttonClassName}
             onPress={onButtonPress}
             onLongPress={onButtonLongPress}
             onPressIn={onButtonPressIn}
             onPressOut={onButtonPressOut}
+            style={_buttonStyle}
         >
             {loading ? (
-                <StyledActivityIndicator
+                <ActivityIndicator
                     animating
                     size={"small"}
-                    color={TYPES_THEME[type].indicatorColor}
-                    className={"mr-[4px]"}
-                    style={{ transform: [{ scale: SIZE_THEME[size].indicator }] }}
+                    color={styles[`${type}IndicatorColor`].color}
+                    style={styles[`${size}Indicator`]}
                 />
             ) : null}
             {leftIcon && leftIcon}
-            <Text textStyle={textClassName}>{children}</Text>
+            <Text textStyle={_textStyle}>{children}</Text>
             {rightIcon && rightIcon}
-        </StyledPressable>
+        </Pressable>
     );
 };
 
-export default styled(Button);
+export default Button;
