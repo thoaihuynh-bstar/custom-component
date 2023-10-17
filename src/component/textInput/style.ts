@@ -9,8 +9,8 @@ export const TEXT_INPUT_FOCUS_THEME = {
 export const styles = StyleSheet.create({
     containerStyle: {
         borderWidth: 1, paddingHorizontal: Metrics.spacingSm,
-        borderColor: Colors.primary
-
+        borderColor: Colors.primary,
+        alignItems: 'center',
     },
     disableInput: {color:Colors.greyScale2, backgroundColor: Colors.greyScale3, borderColor: Colors.greyScale2},
     titleStyle: {
