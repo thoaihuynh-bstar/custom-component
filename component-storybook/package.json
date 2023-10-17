@@ -14,9 +14,12 @@
     "build-storybook": "build-storybook -c .storybook-web"
   },
   "dependencies": {
+    "@huynhtrungthoai/custom-component": "^0.0.84",
     "lodash": "^4.17.21",
     "react": "18.2.0",
-    "react-native": "0.72.3"
+    "react-native": "0.72.3",
+    "react-native-fast-image": "^8.6.3",
+    "react-native-modal": "^13.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
