@@ -15,10 +15,10 @@ import { Text } from '../../component'
 interface ButtonProps {
     loading?: boolean;
     disable?: boolean;
-    buttonStyle?: StyleProp<ViewStyle>;
+    style?: StyleProp<ViewStyle>;
     textStyle?: StyleProp<TextStyle>;
     activeOpacity?: number;
-    children: React.ReactNode;
+    children?: React.ReactNode;
     type?: "default" | "outline" | "alert";
     size?: "small" | "medium" | "large";
     leftIcon?: React.ReactNode;
@@ -33,7 +33,7 @@ const Button = (props: ButtonProps) => {
     const [pressed, setPressed] = useState<boolean>(false);
     const {
         loading = false,
-        buttonStyle,
+        style,
         textStyle,
         children,
         type = "default",
@@ -78,14 +78,14 @@ const Button = (props: ButtonProps) => {
         styles[`${size}Button`],
         styles[`${type}Background`],
         { ...(pressed && { opacity: 0.6 }) },
-        buttonStyle,
+        style,
     ]);
 
     const _textStyle = [styles[`${size}Text`], styles[`${type}TextColor`], textStyle];
 
     return (
         <Pressable
-            {...omit(props, ["children"])}
+            {...omit(props, ["children","style","textStyle"])}
             disabled={disable}
             onPress={onButtonPress}
             onLongPress={onButtonLongPress}
@@ -102,7 +102,7 @@ const Button = (props: ButtonProps) => {
                 />
             ) : null}
             {leftIcon && leftIcon}
-            <Text textStyle={_textStyle}>{children}</Text>
+            <Text style={_textStyle}>{children}</Text>
             {rightIcon && rightIcon}
         </Pressable>
     );

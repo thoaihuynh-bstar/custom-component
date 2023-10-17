@@ -4,7 +4,6 @@ import {
     Image,
     ColorValue,
     KeyboardType,
-    TouchableOpacity,
     TextInput as RNTextInput,
     ImageStyle,
     ViewStyle,
@@ -14,6 +13,7 @@ import {
 } from "react-native";
 import { Text, View } from "../../component";
 import { Metrics } from "../../themes";
+import { Touchable } from "../../component";
 import Images from "../../themes/images";
 import { TEXT_INPUT_FOCUS_THEME, styles } from "./style";
 
@@ -127,8 +127,8 @@ const TextInput = (props: TextInputProps) => {
 
     return (
         <>
-            {label && <Text textStyle={[styles.titleStyle, titleStyle]}>{label}</Text>}
-            <View row centerVertical viewStyle={_containerStyle}>
+            {label && <Text style={[styles.titleStyle, titleStyle]}>{label}</Text>}
+            <View row centerVertical style={_containerStyle}>
                 {leftComponent && leftComponent}
                 <RNTextInput
                     ref={inputRef}
@@ -142,36 +142,31 @@ const TextInput = (props: TextInputProps) => {
                     onSubmitEditing={onTextInputSubmitEditing}
                     textAlign={textAlign}
                     keyboardType={keyboardType}
-                    style={{ color: textColor }}
                     underlineColorAndroid="transparent"
                     multiline={!isPassword && multiline}
                     textAlignVertical={textAlignVertical}
                     placeholderTextColor={placeholderTextColor}
-                    style={[styles.inputStyle, inputStyle]}
+                    style={[{ color: textColor }, styles.inputStyle, inputStyle]}
                     secureTextEntry={!showPassword && isPassword}
                 />
                 {!isEmpty(value) && showClearAll && (
-                    <TouchableOpacity onPress={onClearAll}>
+                    <Touchable onPress={onClearAll}>
                         <Image source={Images.icClose} style={[styles.iconStyle, iconStyle]} />
-                    </TouchableOpacity>
+                    </Touchable>
                 )}
                 {isPassword && (
-                    <TouchableOpacity
-                        activeOpacity={0.6}
-                        className={"ml-[4px]"}
-                        onPress={toggleShowPassword}
-                    >
+                    <Touchable onPress={toggleShowPassword}>
                         <Image
                             source={showPassword ? Images.icEye : Images.icEyeOff}
                             style={[styles.iconStyle, iconStyle]}
                         />
-                    </TouchableOpacity>
+                    </Touchable>
                 )}
                 {rightComponent && rightComponent}
             </View>
             {error && (
-                <View viewStyle={styles.alertContainer}>
-                    <Text textStyle={styles.titleStyle}>{error}</Text>
+                <View style={styles.alertContainer}>
+                    <Text style={styles.titleStyle}>{error}</Text>
                 </View>
             )}
         </>

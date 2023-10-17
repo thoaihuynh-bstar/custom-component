@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Pressable, GestureResponderEvent, StyleSheet } from "react-native";
+import { omit } from 'lodash'; 
+import { Pressable, GestureResponderEvent, StyleSheet, StyleProp, ViewStyle } from "react-native";
 
-export interface TouchableProps {
-    buttonStyle?: string;
+interface TouchableProps {
+    style?: StyleProp<ViewStyle>;
     children?: React.ReactNode;
     center?: boolean;
     row?: boolean;
@@ -17,7 +18,7 @@ export interface TouchableProps {
 const Touchable = (props: TouchableProps) => {
     const [pressed, setPressed] = useState<boolean>(false);
     const {
-        buttonStyle = "",
+        style,
         children,
         center,
         row,
@@ -47,17 +48,20 @@ const Touchable = (props: TouchableProps) => {
         onPressOut && onPressOut(e);
     };
 
-    const _containerStyle = StyleSheet.flatten([
-        { ...(row && { flexDirection: "row" }) },
-        { ...(center && { justifyContent: "center", alignItems: "center" }) },
-        { ...(centerHorizontal && { alignItems: "center" }) },
-        { ...(centerVertical && { justifyContent: "center" }) },
-        buttonStyle,
-        { ...(pressed && { opacity: 0.6 }) },
+    const _containerStyle: StyleProp<ViewStyle> = StyleSheet.flatten([
+        {
+            ...(row && { flexDirection: "row" }),
+            ...(center && { justifyContent: "center", alignItems: "center" }),
+            ...(centerHorizontal && { alignItems: "center" }),
+            ...(centerVertical && { justifyContent: "center" }),
+            ...(pressed && { opacity: 0.6 }),
+        },
+        style,
     ]);
 
     return (
         <Pressable
+            {...omit(props, ["children", "style"])}
             style={_containerStyle}
             onPress={onButtonPress}
             onLongPress={onButtonLongPress}

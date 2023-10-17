@@ -2,7 +2,7 @@ import React from "react";
 import { Switch as RNSwitch, ColorValue } from "react-native";
 import { Colors } from "../../themes";
 
-export interface SwitchProps {
+interface SwitchProps {
     disable?: boolean;
     scaleX?: number;
     scaleY?: number;

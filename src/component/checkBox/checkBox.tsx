@@ -59,7 +59,7 @@ const CheckBox = (props: CheckBoxProps) => {
                 />
             )}
             {title ? (
-                <Text textStyle={[styles.titleStyle, textStyle]}>
+                <Text style={[styles.titleStyle, textStyle]}>
                     {(checked && checkedTitle) || title}
                 </Text>
             ) : null}

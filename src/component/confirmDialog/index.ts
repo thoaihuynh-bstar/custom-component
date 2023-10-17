@@ -1,4 +1,3 @@
-import ConfirmDialog, {ConfirmDialogProps} from "./confirmDialog";
+import ConfirmDialog from "./confirmDialog";
 
 export { ConfirmDialog };
-export type { ConfirmDialogProps };

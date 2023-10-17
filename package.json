@@ -1,13 +1,12 @@
 {
   "name": "@huynhtrungthoai/custom-component",
-  "version": "0.0.82",
+  "version": "0.0.83",
   "description": "Refactor",
   "main": "index.ts",
   "scripts": {},
   "keywords": [
     "huynhtrungthoai",
     "react-native",
-    "nativewind",
     "elements",
     "react-native-component",
     "react-native"
@@ -18,7 +17,6 @@
   "peerDependencies": {
     "lodash": "*",
     "react-native": "*",
-    "nativewind": "*",
     "react-native-fast-image": "*",
     "react-native-modal": "*"
   },

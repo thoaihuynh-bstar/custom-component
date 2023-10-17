@@ -11,12 +11,13 @@ interface TextProps {
     white?: boolean;
     center?: boolean;
     right?: boolean;
+    size?: number;
     underline?: boolean;
     lineThrough?: boolean;
     numberOfLines?: number;
     onPress?: () => void;
     onLongPress?: () => void;
-    textStyle?: StyleProp<TextStyle>;
+    style?: StyleProp<TextStyle>;
     children?: React.ReactNode;
 }
 
@@ -32,14 +33,16 @@ const Text = (props: TextProps) => {
         underline,
         lineThrough,
         numberOfLines = 0,
+        size,
         onPress,
         onLongPress,
-        textStyle,
+        style,
         children,
     } = props;
 
     const _style: StyleProp<TextStyle> = StyleSheet.flatten([
         {
+            ...(size && { fontSize: size }),
             ...(light && { fontWeight: "400" }),
             ...(semibold && { fontWeight: "600" }),
             ...(bold && { fontWeight: "500" }),
@@ -50,7 +53,7 @@ const Text = (props: TextProps) => {
             ...(center && { textAlign: "center" }),
             ...(right && { textAlign: "right" }),
         },
-        textStyle,
+        style,
     ]);
 
     const onTextPress = () => {
@@ -63,7 +66,7 @@ const Text = (props: TextProps) => {
 
     return (
         <RNText
-            {...omit(props, ["children"])}
+            {...omit(props, ["children", "style"])}
             numberOfLines={numberOfLines}
             onPress={onPress ? onTextPress : undefined}
             onLongPress={onLongPress ? onTextLongPress : undefined}

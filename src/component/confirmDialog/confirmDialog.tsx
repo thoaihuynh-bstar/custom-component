@@ -1,12 +1,11 @@
 import React, { forwardRef, useRef, useState } from "react";
-import { StyleSheet, KeyboardAvoidingView } from "react-native";
+import { StyleSheet, KeyboardAvoidingView, StyleProp, ViewStyle } from "react-native";
 import Modal from "react-native-modal";
-import { styled } from "nativewind";
-import { Metrics } from '../../themes'
+import { Metrics } from "../../themes";
 import { View, Button, Text } from "../../component";
-import { twMerge } from "tailwind-merge";
+import { styles } from "./style";
 
-export interface ConfirmDialogProps {
+interface ConfirmDialogProps {
     children: any;
     isVisible?: boolean;
     title?: string | React.ReactNode;
@@ -18,7 +17,7 @@ export interface ConfirmDialogProps {
     useExternalVisibility?: boolean;
     submitBtnStyle?: string;
     isDarkMode?: boolean;
-    containerStyle?: string; // Nativewind className
+    style?: StyleProp<ViewStyle>;
 }
 
 const ConfirmDialog = forwardRef((props: ConfirmDialogProps, ref: any) => {
@@ -32,7 +31,7 @@ const ConfirmDialog = forwardRef((props: ConfirmDialogProps, ref: any) => {
         onCancel = undefined,
         onBackdropPress,
         useExternalVisibility = false,
-        containerStyle = "",
+        style,
     } = props;
 
     const refCallbacks = useRef<any>({});
@@ -92,7 +91,7 @@ const ConfirmDialog = forwardRef((props: ConfirmDialogProps, ref: any) => {
         onCancel && onCancel();
     };
 
-    const containerClassName = twMerge("bg-white rounded-lg p-6 mx-2", containerStyle);
+    const _containerStyle = StyleSheet.flatten([styles.containerStyle, style]);
 
     if (!visible) return null;
     return (
@@ -110,27 +109,29 @@ const ConfirmDialog = forwardRef((props: ConfirmDialogProps, ref: any) => {
                 backdropTransitionOutTiming={300}
                 onBackdropPress={onHideBackdrop}
             >
-                <View viewStyle={containerClassName}>
+                <View style={_containerStyle}>
                     {title && (
-                        <Text bold size={"lg"}>
+                        <Text bold size={16}>
                             {title}
                         </Text>
                     )}
                     {children}
-                    <View row center viewStyle="mt-2">
+                    <View row center style={styles.buttonView}>
                         {onCancel && (
                             <Button
-                                buttonStyle={`w-[45%]`}
                                 type={"outline"}
+                                style={styles.halfScreenButton}
                                 onPress={onCancelPress}
                             >
-                                {cancelText}
+                                d{cancelText}
                             </Button>
                         )}
                         {!!onCancel && !!onSubmit && <View flex />}
                         {onSubmit && (
                             <Button
-                                buttonStyle={!!onSubmit ? "w-[45%]" : "w-full"}
+                                style={
+                                    !!onSubmit ? styles.halfScreenButton : styles.fullScreenButton
+                                }
                                 onPress={onSubmitPress}
                             >
                                 {submitText}
@@ -142,14 +143,5 @@ const ConfirmDialog = forwardRef((props: ConfirmDialogProps, ref: any) => {
         </KeyboardAvoidingView>
     );
 });
-export const styles = StyleSheet.create({
-    blurModal: {
-        minHeight: 20,
-        borderRadius: 8,
-        paddingVertical: 28,
-        paddingHorizontal: 20,
-        backgroundColor: "transparent",
-    },
-});
 
-export default styled(ConfirmDialog);
+export default ConfirmDialog;

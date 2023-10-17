@@ -1,4 +1,5 @@
 import React from "react";
+import {omit} from 'lodash';
 import { View as RNView, StyleProp, StyleSheet, ViewStyle } from "react-native";
 
 interface ViewProps {
@@ -9,7 +10,7 @@ interface ViewProps {
     centerHorizontal?: boolean;
     centerVertical?: boolean;
     flex?: boolean;
-    viewStyle?: StyleProp<ViewStyle>; // NativeWind className
+    style?: StyleProp<ViewStyle>; // NativeWind className
     children?: JSX.Element | JSX.Element[] | React.ReactNode | React.ReactNodeArray;
 }
 
@@ -22,7 +23,7 @@ const View = (props: ViewProps) => {
         centerHorizontal = false,
         centerVertical = false,
         flex = false,
-        viewStyle,
+        style,
         children,
     } = props;
 
@@ -34,10 +35,10 @@ const View = (props: ViewProps) => {
         { ...(centerHorizontal && { alignItems: "center" }) },
         { ...(centerVertical && { justifyContent: "center" }) },
         { ...(flex && { flex: 1 }) },
-        viewStyle,
+        style,
     ]);
 
-    return <RNView style={_viewStyle}>{children}</RNView>;
+    return <RNView {...omit(props, ["children", "style"])} style={_viewStyle}>{children}</RNView>;
 };
 
 export default View;
