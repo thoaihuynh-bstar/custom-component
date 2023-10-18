@@ -1,7 +1,7 @@
 import React from 'react';
-import { Pressable, StyleProp, TextStyle, ViewStyle, ImageStyle } from 'react-native';
-import { Text, Image } from '../../component';
-import Images from '../../themes/images';
+import { Pressable, StyleProp, TextStyle, ViewStyle, ImageStyle, Text } from 'react-native';
+import { Image } from '..';
+import { Images } from '../../themes';
 import { styles } from './style';
 
 interface CheckBoxProps {

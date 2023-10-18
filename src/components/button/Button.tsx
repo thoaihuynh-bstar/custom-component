@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
     Pressable,
     ActivityIndicator,
@@ -7,10 +7,10 @@ import {
     ViewStyle,
     TextStyle,
     StyleSheet,
+    Text,
 } from 'react-native';
-import { omit } from 'lodash';
-import { styles } from './style';
-import { Text } from '..';
+import {omit} from 'lodash';
+import {styles} from './style';
 
 interface ButtonProps {
     loading?: boolean;
@@ -77,7 +77,8 @@ export const Button = (props: ButtonProps) => {
         styles.buttonContainer,
         styles[`${size}Button`],
         styles[`${type}Background`],
-        { ...(pressed && { opacity: 0.6 }) },
+        {...(pressed && {opacity: 0.6})},
+        {...(disable && {opacity: 0.7})},
         style,
     ]);
 

@@ -2,7 +2,7 @@ import React, { forwardRef, useRef, useState } from 'react';
 import { StyleSheet, KeyboardAvoidingView, StyleProp, ViewStyle } from 'react-native';
 import Modal from 'react-native-modal';
 import { Metrics } from '../../themes';
-import { View, Button, Text } from '../../component';
+import { View, Button, Text } from '..';
 import { styles } from './style';
 
 interface ConfirmDialogProps {

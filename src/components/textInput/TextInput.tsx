@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import { Text, View } from '..';
 import { Colors, Metrics } from '../../themes';
-import { Touchable } from '../../component';
+import { Touchable } from '..';
 import Images from '../../themes/images';
 import { TEXT_INPUT_FOCUS_THEME, styles } from './style';
 
