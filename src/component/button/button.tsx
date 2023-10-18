@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
     Pressable,
     ActivityIndicator,
@@ -6,11 +6,11 @@ import {
     StyleProp,
     ViewStyle,
     TextStyle,
-    StyleSheet
-} from "react-native";
-import { omit } from "lodash";
-import { styles } from "./style";
-import { Text } from '../../component'
+    StyleSheet,
+} from 'react-native';
+import { omit } from 'lodash';
+import { styles } from './style';
+import { Text } from '..';
 
 interface ButtonProps {
     loading?: boolean;
@@ -19,8 +19,8 @@ interface ButtonProps {
     textStyle?: StyleProp<TextStyle>;
     activeOpacity?: number;
     children?: React.ReactNode;
-    type?: "default" | "outline" | "alert";
-    size?: "small" | "medium" | "large";
+    type?: 'default' | 'outline' | 'alert';
+    size?: 'small' | 'medium' | 'large';
     leftIcon?: React.ReactNode;
     rightIcon?: React.ReactNode;
     onPress?: (e: GestureResponderEvent) => void;
@@ -36,8 +36,8 @@ export const Button = (props: ButtonProps) => {
         style,
         textStyle,
         children,
-        type = "default",
-        size = "large",
+        type = 'default',
+        size = 'large',
         disable = false,
         leftIcon = null,
         rightIcon = null,
@@ -85,7 +85,7 @@ export const Button = (props: ButtonProps) => {
 
     return (
         <Pressable
-            {...omit(props, ["children","style","textStyle"])}
+            {...omit(props, ['children', 'style', 'textStyle'])}
             disabled={disable}
             onPress={onButtonPress}
             onLongPress={onButtonLongPress}
@@ -96,7 +96,7 @@ export const Button = (props: ButtonProps) => {
             {loading ? (
                 <ActivityIndicator
                     animating
-                    size={"small"}
+                    size={'small'}
                     color={styles[`${type}IndicatorColor`].color}
                     style={styles[`${size}Indicator`]}
                 />

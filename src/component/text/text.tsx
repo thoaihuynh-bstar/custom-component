@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import { omit } from 'lodash';
-import { Text as RNText, StyleProp, StyleSheet, TextStyle } from "react-native";
-import { Colors } from "../../themes";
+import { Text as RNText, StyleProp, StyleSheet, TextStyle } from 'react-native';
+import { Colors } from '../../themes';
 
 interface TextProps {
     bold?: boolean;
@@ -43,15 +43,15 @@ export const Text = (props: TextProps) => {
     const _style: StyleProp<TextStyle> = StyleSheet.flatten([
         {
             ...(size && { fontSize: size }),
-            ...(light && { fontWeight: "400" }),
-            ...(semibold && { fontWeight: "600" }),
-            ...(bold && { fontWeight: "500" }),
+            ...(light && { fontWeight: '400' }),
+            ...(semibold && { fontWeight: '600' }),
+            ...(bold && { fontWeight: '500' }),
             ...(white && { color: Colors.white }),
-            ...(italic && { fontStyle: "italic" }),
-            ...(underline && { textDecorationLine: "underline" }),
-            ...(lineThrough && { textDecorationLine: "line-through" }),
-            ...(center && { textAlign: "center" }),
-            ...(right && { textAlign: "right" }),
+            ...(italic && { fontStyle: 'italic' }),
+            ...(underline && { textDecorationLine: 'underline' }),
+            ...(lineThrough && { textDecorationLine: 'line-through' }),
+            ...(center && { textAlign: 'center' }),
+            ...(right && { textAlign: 'right' }),
         },
         style,
     ]);
@@ -66,7 +66,7 @@ export const Text = (props: TextProps) => {
 
     return (
         <RNText
-            {...omit(props, ["children", "style"])}
+            {...omit(props, ['children', 'style'])}
             numberOfLines={numberOfLines}
             onPress={onPress ? onTextPress : undefined}
             onLongPress={onLongPress ? onTextLongPress : undefined}

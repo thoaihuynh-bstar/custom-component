@@ -1,9 +1,9 @@
-import React, { forwardRef, useRef, useState } from "react";
-import { StyleSheet, KeyboardAvoidingView, StyleProp, ViewStyle } from "react-native";
-import Modal from "react-native-modal";
-import { Metrics } from "../../themes";
-import { View, Button, Text } from "../../component";
-import { styles } from "./style";
+import React, { forwardRef, useRef, useState } from 'react';
+import { StyleSheet, KeyboardAvoidingView, StyleProp, ViewStyle } from 'react-native';
+import Modal from 'react-native-modal';
+import { Metrics } from '../../themes';
+import { View, Button, Text } from '../../component';
+import { styles } from './style';
 
 interface ConfirmDialogProps {
     children: any;
@@ -25,8 +25,8 @@ export const ConfirmDialog = forwardRef((props: ConfirmDialogProps, ref: any) =>
         children,
         isVisible = false,
         title,
-        submitText = "Đồng ý",
-        cancelText = "Huỷ",
+        submitText = 'Đồng ý',
+        cancelText = 'Huỷ',
         onSubmit = undefined,
         onCancel = undefined,
         onBackdropPress,
@@ -119,7 +119,7 @@ export const ConfirmDialog = forwardRef((props: ConfirmDialogProps, ref: any) =>
                     <View row center style={styles.buttonView}>
                         {onCancel && (
                             <Button
-                                type={"outline"}
+                                type={'outline'}
                                 style={styles.halfScreenButton}
                                 onPress={onCancelPress}
                             >

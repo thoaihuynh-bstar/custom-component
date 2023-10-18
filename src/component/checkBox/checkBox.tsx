@@ -1,8 +1,8 @@
-import React from "react";
-import { Pressable, StyleProp, TextStyle, ViewStyle, ImageStyle } from "react-native";
-import { Text, Image } from "../../component";
-import Images from "../../themes/images";
-import { styles } from "./style";
+import React from 'react';
+import { Pressable, StyleProp, TextStyle, ViewStyle, ImageStyle } from 'react-native';
+import { Text, Image } from '../../component';
+import Images from '../../themes/images';
+import { styles } from './style';
 
 interface CheckBoxProps {
     disable?: boolean;
@@ -11,7 +11,7 @@ interface CheckBoxProps {
     checkedTitle?: React.ReactNode;
     checkedIcon?: string | number;
     unCheckedIcon?: string | number;
-    size?: "small" | "medium" | "large";
+    size?: 'small' | 'medium' | 'large';
     textStyle?: StyleProp<TextStyle>;
     containerStyle?: StyleProp<ViewStyle>;
     checkedIconStyle?: StyleProp<ImageStyle>;
@@ -27,7 +27,7 @@ export const CheckBox = (props: CheckBoxProps) => {
         checkedTitle,
         checkedIcon,
         unCheckedIcon,
-        size = "medium",
+        size = 'medium',
         textStyle,
         checkedIconStyle,
         unCheckedIconStyle,

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { isEmpty } from "lodash";
+import React, { useState } from 'react';
+import { isEmpty } from 'lodash';
 import {
     Image,
     ColorValue,
@@ -10,12 +10,12 @@ import {
     StyleProp,
     TextStyle,
     StyleSheet,
-} from "react-native";
-import { Text, View } from "../../component";
-import { Metrics } from "../../themes";
-import { Touchable } from "../../component";
-import Images from "../../themes/images";
-import { TEXT_INPUT_FOCUS_THEME, styles } from "./style";
+} from 'react-native';
+import { Text, View } from '..';
+import { Colors, Metrics } from '../../themes';
+import { Touchable } from '../../component';
+import Images from '../../themes/images';
+import { TEXT_INPUT_FOCUS_THEME, styles } from './style';
 
 interface TextInputProps {
     inputRef?: any;
@@ -60,10 +60,10 @@ export const TextInput = (props: TextInputProps) => {
 
     const {
         inputRef,
-        error = "",
-        value = "",
+        error = '',
+        value = '',
         placeholder,
-        label = "",
+        label = '',
         placeholderTextColor,
         leftComponent = null,
         rightComponent = null,
@@ -78,7 +78,7 @@ export const TextInput = (props: TextInputProps) => {
         autoFocus = undefined,
         showClearAll = false,
         round = false,
-        textColor = "#000000",
+        textColor = Colors.black,
         titleStyle,
         containerStyle,
         inputStyle,
@@ -98,8 +98,8 @@ export const TextInput = (props: TextInputProps) => {
     ]);
 
     // Input Text alignment
-    const textAlign = topleft ? "left" : centerHorizontalText || center ? "center" : undefined;
-    const textAlignVertical = topleft ? "top" : centerVerticalText || center ? "center" : undefined;
+    const textAlign = topleft ? 'left' : centerHorizontalText || center ? 'center' : undefined;
+    const textAlignVertical = topleft ? 'top' : centerVerticalText || center ? 'center' : undefined;
 
     const onChangeText = (text: string) => {
         if (!disabled) {
@@ -118,7 +118,7 @@ export const TextInput = (props: TextInputProps) => {
     };
 
     const onClearAll = () => {
-        onChangeValue && onChangeValue("");
+        onChangeValue && onChangeValue('');
     };
 
     const onTextInputSubmitEditing = () => {

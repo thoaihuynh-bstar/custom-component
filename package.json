@@ -1,43 +1,43 @@
 {
-  "name": "@huynhtrungthoai/custom-component",
-  "version": "0.0.85",
-  "description": "Refactor",
-  "main": "index.ts",
-  "scripts": {},
-  "keywords": [
-    "huynhtrungthoai",
-    "react-native",
-    "elements",
-    "react-native-component",
-    "react-native"
-  ],
-  "author": "Huynh Trung Thoai <huynhtrungthoai@gmail.com>",
-  "license": "MIT",
-  "private": false,
-  "peerDependencies": {
-    "lodash": "*",
-    "react-native": "*",
-    "react-native-fast-image": "*",
-    "react-native-modal": "*"
-  },
-  "devDependencies": {
-    "@types/jest": "^29.5.1",
-    "@types/lodash": "^4.14.194",
-    "@types/react": "^18.0.38",
-    "@types/react-native": "^0.71.6",
-    "eslint": "^8.39.0",
-    "eslint-config-prettier": "^8.8.0",
-    "jest": "^29.5.0",
-    "prettier": "^2.8.7",
-    "react-native": "^0.71.7",
-    "typescript": "^5.0.4"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thoaihuynh-bstar/custom-component.git"
-  },
-  "bugs": {
-    "url": "https://github.com/thoaihuynh-bstar/custom-component/issues"
-  },
-  "homepage": "https://github.com/thoaihuynh-bstar/custom-component#readme"
+    "name": "@huynhtrungthoai/custom-component",
+    "version": "0.0.86",
+    "description": "Refactor",
+    "main": "index.ts",
+    "scripts": {},
+    "keywords": [
+        "huynhtrungthoai",
+        "react-native",
+        "elements",
+        "react-native-component",
+        "react-native"
+    ],
+    "author": "Huynh Trung Thoai <huynhtrungthoai@gmail.com>",
+    "license": "MIT",
+    "private": false,
+    "peerDependencies": {
+        "lodash": "*",
+        "react-native": "*",
+        "react-native-fast-image": "*",
+        "react-native-modal": "*"
+    },
+    "devDependencies": {
+        "@types/jest": "^29.5.1",
+        "@types/lodash": "^4.14.194",
+        "@types/react": "^18.0.38",
+        "@types/react-native": "^0.71.6",
+        "eslint": "^8.39.0",
+        "eslint-config-prettier": "^8.8.0",
+        "jest": "^29.5.0",
+        "prettier": "^2.8.7",
+        "react-native": "^0.71.7",
+        "typescript": "^5.0.4"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/thoaihuynh-bstar/custom-component.git"
+    },
+    "bugs": {
+        "url": "https://github.com/thoaihuynh-bstar/custom-component/issues"
+    },
+    "homepage": "https://github.com/thoaihuynh-bstar/custom-component#readme"
 }

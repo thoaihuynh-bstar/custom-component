@@ -1,22 +1,22 @@
-import { StyleSheet } from "react-native";
-import { Colors, Metrics } from "../../themes";
+import { StyleSheet } from 'react-native';
+import { Colors, Metrics } from '../../themes';
 
 export const styles = StyleSheet.create({
     buttonContainer: {
         alignItems: 'center',
-        justifyContent: 'center', 
+        justifyContent: 'center',
         paddingHorizontal: Metrics.spacingSm,
         borderRadius: Metrics.radiusSm,
     },
     // Button size
-    smallButton: {height: Metrics.buttonSm},
-    mediumButton: {height: Metrics.buttonMd},
-    largeButton: {height: Metrics.buttonLg},
+    smallButton: { height: Metrics.buttonSm },
+    mediumButton: { height: Metrics.buttonMd },
+    largeButton: { height: Metrics.buttonLg },
 
     // Font size
-    smallText: {fontSize: Metrics.fontSm, fontWeight: "600"},
-    mediumText: {fontSize: Metrics.fontMd, fontWeight: '600'},
-    largeText: {fontSize: Metrics.fontLg, fontWeight: '600'},
+    smallText: { fontSize: Metrics.fontSm, fontWeight: '600' },
+    mediumText: { fontSize: Metrics.fontMd, fontWeight: '600' },
+    largeText: { fontSize: Metrics.fontLg, fontWeight: '600' },
 
     // Indicator size
     smallIndicator: { transform: [{ scale: 0.6 }] },
@@ -24,21 +24,21 @@ export const styles = StyleSheet.create({
     largeIndicator: { transform: [{ scale: 1 }] },
 
     // Button background color
-    defaultBackground: {backgroundColor: Colors.primary},
+    defaultBackground: { backgroundColor: Colors.primary },
     outlineBackground: {
-        borderWidth: 1, 
+        borderWidth: 1,
         borderColor: Colors.primary,
-        backgroundColor: Colors.white
+        backgroundColor: Colors.white,
     },
-    alertBackground: {backgroundColor: Colors.systemColor.alert},
+    alertBackground: { backgroundColor: Colors.systemColor.alert },
 
-    // Text color 
-    defaultTextColor: {color: Colors.white},
-    outlineTextColor: {color: Colors.primary},
-    alertTextColor: {color: Colors.white},
+    // Text color
+    defaultTextColor: { color: Colors.white },
+    outlineTextColor: { color: Colors.primary },
+    alertTextColor: { color: Colors.white },
 
     // Indicator color
-    defaultIndicatorColor: {color: Colors.white},
-    outlineIndicatorColor: {color: Colors.systemColor.info},
-    alertIndicatorColor: {color: Colors.white},
-})
+    defaultIndicatorColor: { color: Colors.white },
+    outlineIndicatorColor: { color: Colors.systemColor.info },
+    alertIndicatorColor: { color: Colors.white },
+});

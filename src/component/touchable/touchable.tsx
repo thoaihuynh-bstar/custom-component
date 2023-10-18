@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { omit } from 'lodash'; 
-import { Pressable, GestureResponderEvent, StyleSheet, StyleProp, ViewStyle } from "react-native";
+import React, { useState } from 'react';
+import { omit } from 'lodash';
+import { Pressable, GestureResponderEvent, StyleSheet, StyleProp, ViewStyle } from 'react-native';
 
 interface TouchableProps {
     style?: StyleProp<ViewStyle>;
@@ -50,10 +50,10 @@ export const Touchable = (props: TouchableProps) => {
 
     const _containerStyle: StyleProp<ViewStyle> = StyleSheet.flatten([
         {
-            ...(row && { flexDirection: "row" }),
-            ...(center && { justifyContent: "center", alignItems: "center" }),
-            ...(centerHorizontal && { alignItems: "center" }),
-            ...(centerVertical && { justifyContent: "center" }),
+            ...(row && { flexDirection: 'row' }),
+            ...(center && { justifyContent: 'center', alignItems: 'center' }),
+            ...(centerHorizontal && { alignItems: 'center' }),
+            ...(centerVertical && { justifyContent: 'center' }),
             ...(pressed && { opacity: 0.6 }),
         },
         style,
@@ -61,7 +61,7 @@ export const Touchable = (props: TouchableProps) => {
 
     return (
         <Pressable
-            {...omit(props, ["children", "style"])}
+            {...omit(props, ['children', 'style'])}
             style={_containerStyle}
             onPress={onButtonPress}
             onLongPress={onButtonLongPress}

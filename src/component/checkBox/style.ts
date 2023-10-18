@@ -1,10 +1,10 @@
-import { StyleSheet } from "react-native";
-import { Metrics } from "../../themes";
+import { StyleSheet } from 'react-native';
+import { Metrics } from '../../themes';
 
 export const styles = StyleSheet.create({
     containerStyle: {
-        flexDirection: "row",
-        alignItems: "center",
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     titleStyle: {
         marginLeft: Metrics.spacingXs,
