@@ -1,9 +1,9 @@
 const Images = {
-  icClose: require('../../../src/asset/close.png'),
-  icEye: require('../../../src/asset/eye.png'),
-  icEyeOff: require('../../../src/asset/eyeOff.png'),
-  icCheck: require('../../../src/asset/check.png'),
-  icUnCheck: require('../../../src/asset/unCheck.png'),
+  icClose: require('../../assets/close.png'),
+  icEye: require('../../assets/eye.png'),
+  icEyeOff: require('../../assets/eyeOff.png'),
+  icCheck: require('../../assets/check.png'),
+  icUnCheck: require('../../assets/unCheck.png'),
 };
 
 export default Images;

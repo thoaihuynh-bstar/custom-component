@@ -1,15 +1,15 @@
 import React from 'react';
-import {Switch as RNSwitch, ColorValue} from 'react-native';
+import {Switch as RNSwitch} from 'react-native';
 import {Colors} from '../themes';
 
 interface SwitchProps {
   disable?: boolean;
   scaleX?: number;
   scaleY?: number;
-  enabledTrackColor?: ColorValue;
-  disableTrackColor?: ColorValue;
-  enabledThumbColor?: ColorValue;
-  disableThumbColor?: ColorValue;
+  enabledTrackColor?: string;
+  disableTrackColor?: string;
+  enabledThumbColor?: string;
+  disableThumbColor?: string;
   onToggle?: (value: boolean) => void;
 }
 

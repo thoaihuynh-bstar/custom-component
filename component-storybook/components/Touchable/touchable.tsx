@@ -21,7 +21,7 @@ interface TouchableProps {
   onPressOut?: (e: GestureResponderEvent) => void;
 }
 
-const Touchable = (props: TouchableProps) => {
+export const Touchable = (props: TouchableProps) => {
   const [pressed, setPressed] = useState<boolean>(false);
   const {
     style,
@@ -77,5 +77,3 @@ const Touchable = (props: TouchableProps) => {
     </Pressable>
   );
 };
-
-export default Touchable;

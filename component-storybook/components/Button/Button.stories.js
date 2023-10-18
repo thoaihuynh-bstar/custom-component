@@ -24,4 +24,21 @@ const ButtonMeta = {
 
 export default ButtonMeta;
 
-export const Basic = {};
+export const Basic = {
+  args: {
+    loading: false,
+    disable: false,
+    style: {},
+    textStyle: {},
+    activeOpacity: 0.6,
+    children: 'Basic Button',
+    type: 'default',
+    size: 'large',
+    leftIcon: null,
+    rightIcon: null,
+    onPress: {},
+    onLongPress: {},
+    onPressIn: {},
+    onPressOut: {},
+  },
+};

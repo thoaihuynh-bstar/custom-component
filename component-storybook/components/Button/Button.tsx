@@ -78,6 +78,7 @@ export const Button = (props: ButtonProps) => {
     styles[`${size}Button`],
     styles[`${type}Background`],
     {...(pressed && {opacity: 0.6})},
+    {...(disable && {opacity: 0.7})},
     style,
   ]);
 

@@ -5,8 +5,9 @@ import {
   TextStyle,
   ViewStyle,
   ImageStyle,
+  Text,
 } from 'react-native';
-import {Text, Image} from '../../components';
+import {Image} from '../Image';
 import Images from '../themes/images';
 import {styles} from './style';
 
@@ -25,7 +26,7 @@ interface CheckBoxProps {
   onPress?: () => void;
 }
 
-const CheckBox = (props: CheckBoxProps) => {
+export const CheckBox = (props: CheckBoxProps) => {
   const {
     disable = false,
     checked = false,
@@ -71,5 +72,3 @@ const CheckBox = (props: CheckBoxProps) => {
     </Pressable>
   );
 };
-
-export default CheckBox;

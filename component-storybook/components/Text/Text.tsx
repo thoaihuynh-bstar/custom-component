@@ -12,6 +12,7 @@ interface TextProps {
   center?: boolean;
   right?: boolean;
   size?: number;
+  color?: string;
   underline?: boolean;
   lineThrough?: boolean;
   numberOfLines?: number;
@@ -21,7 +22,7 @@ interface TextProps {
   children?: React.ReactNode;
 }
 
-const Text = (props: TextProps) => {
+export const Text = (props: TextProps) => {
   const {
     bold,
     semibold,
@@ -33,6 +34,7 @@ const Text = (props: TextProps) => {
     underline,
     lineThrough,
     numberOfLines = 0,
+    color,
     size,
     onPress,
     onLongPress,
@@ -42,6 +44,7 @@ const Text = (props: TextProps) => {
 
   const _style: StyleProp<TextStyle> = StyleSheet.flatten([
     {
+      ...(color && {color: color}),
       ...(size && {fontSize: size}),
       ...(light && {fontWeight: '400'}),
       ...(semibold && {fontWeight: '600'}),
@@ -75,5 +78,3 @@ const Text = (props: TextProps) => {
     </RNText>
   );
 };
-
-export default Text;

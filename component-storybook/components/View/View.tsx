@@ -10,7 +10,7 @@ interface ViewProps {
   centerHorizontal?: boolean;
   centerVertical?: boolean;
   flex?: boolean;
-  style?: StyleProp<ViewStyle>; // NativeWind className
+  style?: StyleProp<ViewStyle>;
   children?:
     | JSX.Element
     | JSX.Element[]
@@ -18,7 +18,7 @@ interface ViewProps {
     | React.ReactNodeArray;
 }
 
-const View = (props: ViewProps) => {
+export const View = (props: ViewProps) => {
   const {
     row = false,
     wrap = false,
@@ -48,5 +48,3 @@ const View = (props: ViewProps) => {
     </RNView>
   );
 };
-
-export default View;

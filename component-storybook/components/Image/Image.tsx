@@ -17,15 +17,15 @@ interface ImageProps {
   imageStyle?: StyleProp<ImageStyle>;
 }
 
-const Image = (props: ImageProps) => {
+export const Image = (props: ImageProps) => {
   const {source, resizeMode = 'contain', iconType, imageStyle, onLoad} = props;
   const isString = typeof source === 'string';
 
-  const onImageLoad = (event: OnLoadEvent) => {
-    if (onLoad) {
-      onLoad(event);
-    }
-  };
+  // const onImageLoad = (event: OnLoadEvent) => {
+  //   if (onLoad) {
+  //     onLoad(event);
+  //   }
+  // };
 
   const _ImageStyle: StyleProp<ImageStyle> = StyleSheet.flatten([
     styles.containerStyle,
@@ -33,14 +33,21 @@ const Image = (props: ImageProps) => {
     imageStyle,
   ]);
 
-  return isString && isUrl(source) ? (
-    <FastImage
-      resizeMode={resizeMode}
-      source={{uri: source}}
-      onLoad={onImageLoad}
-      style={_ImageStyle}
-    />
-  ) : (
+  // return isString && isUrl(source) ? (
+  //   <FastImage
+  //     resizeMode={resizeMode}
+  //     source={{uri: source}}
+  //     onLoad={onImageLoad}
+  //     style={_ImageStyle}
+  //   />
+  // ) : (
+  //   <RNImage
+  //     resizeMode={resizeMode}
+  //     source={isString ? {uri: source} : source}
+  //     style={_ImageStyle}
+  //   />
+  // );
+  return (
     <RNImage
       resizeMode={resizeMode}
       source={isString ? {uri: source} : source}
@@ -48,5 +55,3 @@ const Image = (props: ImageProps) => {
     />
   );
 };
-
-export default Image;

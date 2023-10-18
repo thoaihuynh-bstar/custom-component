@@ -17,7 +17,7 @@ import {Touchable} from '../../components';
 import Images from '../themes/images';
 import {TEXT_INPUT_FOCUS_THEME, styles} from './style';
 
-export interface TextInputProps {
+interface TextInputProps {
   inputRef?: any;
   error?: string | JSX.Element | JSX.Element[];
   value: string;
@@ -35,11 +35,11 @@ export interface TextInputProps {
   centerHorizontalText?: boolean;
   centerVerticalText?: boolean;
   center?: boolean;
-  topleft?: boolean;
+  topLeft?: boolean;
   autoFocus?: boolean;
   showClearAll?: boolean;
   round?: boolean;
-  textColor?: ColorValue;
+  textColor?: string;
   containerStyle?: StyleProp<ViewStyle>;
   titleStyle?: StyleProp<TextStyle>;
   inputStyle?: StyleProp<TextStyle>;
@@ -50,7 +50,7 @@ export interface TextInputProps {
   onSubmitEditing?: () => void;
 }
 
-const TextInput = (props: TextInputProps) => {
+export const TextInput = (props: TextInputProps) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [isFocused, setIsFocused] = useState<boolean>(false);
 
@@ -74,7 +74,7 @@ const TextInput = (props: TextInputProps) => {
     centerHorizontalText = false,
     centerVerticalText = false,
     center = false,
-    topleft = false,
+    topLeft = false,
     autoFocus = undefined,
     showClearAll = false,
     round = false,
@@ -98,12 +98,12 @@ const TextInput = (props: TextInputProps) => {
   ]);
 
   // Input Text alignment
-  const textAlign = topleft
+  const textAlign = topLeft
     ? 'left'
     : centerHorizontalText || center
     ? 'center'
     : undefined;
-  const textAlignVertical = topleft
+  const textAlignVertical = topLeft
     ? 'top'
     : centerVerticalText || center
     ? 'center'
@@ -183,5 +183,3 @@ const TextInput = (props: TextInputProps) => {
     </>
   );
 };
-
-export default TextInput;

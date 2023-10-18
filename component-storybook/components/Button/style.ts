@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
   buttonContainer: {
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row',
     paddingHorizontal: Metrics.spacingSm,
     borderRadius: Metrics.radiusSm,
   },
@@ -19,9 +20,9 @@ export const styles = StyleSheet.create({
   largeText: {fontSize: Metrics.fontLg, fontWeight: '600'},
 
   // Indicator size
-  smallIndicator: {transform: [{scale: 0.6}]},
-  mediumIndicator: {transform: [{scale: 0.8}]},
-  largeIndicator: {transform: [{scale: 1}]},
+  smallIndicator: {transform: [{scale: 0.6}], marginRight: Metrics.spacingXs},
+  mediumIndicator: {transform: [{scale: 0.8}], marginRight: Metrics.spacingXs},
+  largeIndicator: {transform: [{scale: 1}], marginRight: Metrics.spacingXs},
 
   // Button background color
   defaultBackground: {backgroundColor: Colors.primary},
