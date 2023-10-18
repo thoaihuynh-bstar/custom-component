@@ -21,7 +21,7 @@ interface TextProps {
     children?: React.ReactNode;
 }
 
-const Text = (props: TextProps) => {
+export const Text = (props: TextProps) => {
     const {
         bold,
         semibold,
@@ -76,5 +76,3 @@ const Text = (props: TextProps) => {
         </RNText>
     );
 };
-
-export default Text;

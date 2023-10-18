@@ -13,7 +13,7 @@ interface SwitchProps {
     onToggle?: (value: boolean) => void;
 }
 
-const Switch = (props: SwitchProps) => {
+export const Switch = (props: SwitchProps) => {
     const {
         disable = false,
         onToggle,
@@ -40,5 +40,3 @@ const Switch = (props: SwitchProps) => {
         />
     );
 };
-
-export default Switch;

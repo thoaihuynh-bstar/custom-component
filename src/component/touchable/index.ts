@@ -1,3 +1,3 @@
-import Touchable from "./touchable";
+import { Touchable } from "./touchable";
 
 export { Touchable };

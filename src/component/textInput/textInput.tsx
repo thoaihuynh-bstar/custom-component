@@ -17,7 +17,7 @@ import { Touchable } from "../../component";
 import Images from "../../themes/images";
 import { TEXT_INPUT_FOCUS_THEME, styles } from "./style";
 
-export interface TextInputProps {
+interface TextInputProps {
     inputRef?: any;
     error?: string | JSX.Element | JSX.Element[];
     value: string;
@@ -50,7 +50,7 @@ export interface TextInputProps {
     onSubmitEditing?: () => void;
 }
 
-const TextInput = (props: TextInputProps) => {
+export const TextInput = (props: TextInputProps) => {
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [isFocused, setIsFocused] = useState<boolean>(false);
 
@@ -172,5 +172,3 @@ const TextInput = (props: TextInputProps) => {
         </>
     );
 };
-
-export default TextInput;

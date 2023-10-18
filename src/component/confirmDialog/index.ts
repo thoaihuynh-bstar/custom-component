@@ -1,3 +1,3 @@
-import ConfirmDialog from "./confirmDialog";
+import { ConfirmDialog } from "./confirmDialog";
 
 export { ConfirmDialog };

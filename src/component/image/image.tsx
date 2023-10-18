@@ -12,7 +12,7 @@ interface ImageProps {
     imageStyle?: StyleProp<ImageStyle>;
 }
 
-const Image = (props: ImageProps) => {
+export const Image = (props: ImageProps) => {
     const { source, resizeMode = "contain", iconType, imageStyle, onLoad } = props;
     const isString = typeof source === "string";
 
@@ -40,5 +40,3 @@ const Image = (props: ImageProps) => {
         />
     );
 };
-
-export default Image;

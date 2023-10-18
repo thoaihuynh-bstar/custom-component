@@ -29,7 +29,7 @@ interface ButtonProps {
     onPressOut?: (e: GestureResponderEvent) => void;
 }
 
-const Button = (props: ButtonProps) => {
+export const Button = (props: ButtonProps) => {
     const [pressed, setPressed] = useState<boolean>(false);
     const {
         loading = false,
@@ -107,5 +107,3 @@ const Button = (props: ButtonProps) => {
         </Pressable>
     );
 };
-
-export default Button;

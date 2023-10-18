@@ -14,7 +14,7 @@ interface ViewProps {
     children?: JSX.Element | JSX.Element[] | React.ReactNode | React.ReactNodeArray;
 }
 
-const View = (props: ViewProps) => {
+export const View = (props: ViewProps) => {
     const {
         row = false,
         wrap = false,
@@ -40,5 +40,3 @@ const View = (props: ViewProps) => {
 
     return <RNView {...omit(props, ["children", "style"])} style={_viewStyle}>{children}</RNView>;
 };
-
-export default View;

@@ -22,6 +22,13 @@
 - ```TextInput```
 
 
+## Publish new versions
+- ```npm publish --access public```
+- ```View```
+- ```Text```
+- ```TextInput```
+
+
 ## Example
 ```
 <Button onPress={() => {}}>Hello Word!</Button>

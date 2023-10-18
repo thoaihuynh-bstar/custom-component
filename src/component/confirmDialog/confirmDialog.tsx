@@ -20,7 +20,7 @@ interface ConfirmDialogProps {
     style?: StyleProp<ViewStyle>;
 }
 
-const ConfirmDialog = forwardRef((props: ConfirmDialogProps, ref: any) => {
+export const ConfirmDialog = forwardRef((props: ConfirmDialogProps, ref: any) => {
     const {
         children,
         isVisible = false,
@@ -143,5 +143,3 @@ const ConfirmDialog = forwardRef((props: ConfirmDialogProps, ref: any) => {
         </KeyboardAvoidingView>
     );
 });
-
-export default ConfirmDialog;

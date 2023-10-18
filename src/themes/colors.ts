@@ -1,18 +1,18 @@
 const Colors = {
+  primary: "#0065FF",
+  secondary: "#E6F7FF",
+
   transparent: "transparent",
   black: "#000000",
   white: "#FFFFFF",
-  primary: "#EDA949",
-  secondary: "#F2C079",
 
-  greyScale0: "#FFFFFF",
-  greyScale1: "#E5E5E5",
-  greyScale2: "#808080",
-  greyScale3: "#4D4D4D",
-  greyScale4: "#2E2E2E",
+  gray1: "#E5E5E5",
+  gray2: "#808080",
+  gray3: "#4D4D4D",
+  gray4: "#2E2E2E",
 
-  blue: "#1F4761",
-  darkBlue: "#182933",
+  blue: "#0025fa",
+  darkBlue: "#061154",
 
   systemColor: {
       alert: "#f4333c",
@@ -21,8 +21,6 @@ const Colors = {
       important: "#ff5b05",
       info: "#108ee9",
   },
-
-  
 };
 
 export default Colors;
