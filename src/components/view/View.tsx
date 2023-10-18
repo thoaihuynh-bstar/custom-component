@@ -10,7 +10,7 @@ interface ViewProps {
     centerHorizontal?: boolean;
     centerVertical?: boolean;
     flex?: boolean;
-    style?: StyleProp<ViewStyle>; // NativeWind className
+    style?: StyleProp<ViewStyle>;
     children?: JSX.Element | JSX.Element[] | React.ReactNode | React.ReactNodeArray;
 }
 

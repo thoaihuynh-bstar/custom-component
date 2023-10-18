@@ -2,7 +2,7 @@ import React, { forwardRef, useRef, useState } from 'react';
 import { StyleSheet, KeyboardAvoidingView, StyleProp, ViewStyle } from 'react-native';
 import Modal from 'react-native-modal';
 import { Metrics } from '../../themes';
-import { View, Button, Text } from '..';
+import { View, Button, Text } from '../../components';
 import { styles } from './style';
 
 interface ConfirmDialogProps {
@@ -15,8 +15,6 @@ interface ConfirmDialogProps {
     onCancel?: () => void;
     onBackdropPress?: () => void;
     useExternalVisibility?: boolean;
-    submitBtnStyle?: string;
-    isDarkMode?: boolean;
     style?: StyleProp<ViewStyle>;
 }
 
@@ -123,7 +121,7 @@ export const ConfirmDialog = forwardRef((props: ConfirmDialogProps, ref: any) =>
                                 style={styles.halfScreenButton}
                                 onPress={onCancelPress}
                             >
-                                d{cancelText}
+                                {cancelText}
                             </Button>
                         )}
                         {!!onCancel && !!onSubmit && <View flex />}

@@ -12,6 +12,7 @@ interface TextProps {
     center?: boolean;
     right?: boolean;
     size?: number;
+    color?: string;
     underline?: boolean;
     lineThrough?: boolean;
     numberOfLines?: number;
@@ -33,6 +34,7 @@ export const Text = (props: TextProps) => {
         underline,
         lineThrough,
         numberOfLines = 0,
+        color,
         size,
         onPress,
         onLongPress,
@@ -42,6 +44,7 @@ export const Text = (props: TextProps) => {
 
     const _style: StyleProp<TextStyle> = StyleSheet.flatten([
         {
+            ...(color && { color: color }),
             ...(size && { fontSize: size }),
             ...(light && { fontWeight: '400' }),
             ...(semibold && { fontWeight: '600' }),

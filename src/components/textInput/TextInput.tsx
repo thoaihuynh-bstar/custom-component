@@ -12,9 +12,8 @@ import {
     StyleSheet,
 } from 'react-native';
 import { Text, View } from '..';
-import { Colors, Metrics } from '../../themes';
-import { Touchable } from '..';
-import Images from '../../themes/images';
+import { Metrics, Images } from '../../themes';
+import { Touchable } from '../../components';
 import { TEXT_INPUT_FOCUS_THEME, styles } from './style';
 
 interface TextInputProps {
@@ -35,11 +34,11 @@ interface TextInputProps {
     centerHorizontalText?: boolean;
     centerVerticalText?: boolean;
     center?: boolean;
-    topleft?: boolean;
+    topLeft?: boolean;
     autoFocus?: boolean;
     showClearAll?: boolean;
     round?: boolean;
-    textColor?: ColorValue;
+    textColor?: string;
     containerStyle?: StyleProp<ViewStyle>;
     titleStyle?: StyleProp<TextStyle>;
     inputStyle?: StyleProp<TextStyle>;
@@ -74,11 +73,11 @@ export const TextInput = (props: TextInputProps) => {
         centerHorizontalText = false,
         centerVerticalText = false,
         center = false,
-        topleft = false,
+        topLeft = false,
         autoFocus = undefined,
         showClearAll = false,
         round = false,
-        textColor = Colors.black,
+        textColor = '#000000',
         titleStyle,
         containerStyle,
         inputStyle,
@@ -98,8 +97,8 @@ export const TextInput = (props: TextInputProps) => {
     ]);
 
     // Input Text alignment
-    const textAlign = topleft ? 'left' : centerHorizontalText || center ? 'center' : undefined;
-    const textAlignVertical = topleft ? 'top' : centerVerticalText || center ? 'center' : undefined;
+    const textAlign = topLeft ? 'left' : centerHorizontalText || center ? 'center' : undefined;
+    const textAlignVertical = topLeft ? 'top' : centerVerticalText || center ? 'center' : undefined;
 
     const onChangeText = (text: string) => {
         if (!disabled) {
