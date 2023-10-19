@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { isEmpty } from 'lodash';
+import React, {useState} from 'react';
+import {isEmpty} from 'lodash';
 import {
     Image,
     ColorValue,
@@ -11,10 +11,10 @@ import {
     TextStyle,
     StyleSheet,
 } from 'react-native';
-import { Text, View } from '..';
-import { Metrics, Images } from '../../themes';
-import { Touchable } from '../../components';
-import { TEXT_INPUT_FOCUS_THEME, styles } from './style';
+import {Text, View} from '..';
+import {Metrics, Images} from '../../themes';
+import {Touchable} from '../../components';
+import {TEXT_INPUT_FOCUS_THEME, styles} from './style';
 
 interface TextInputProps {
     inputRef?: any;
@@ -90,7 +90,7 @@ export const TextInput = (props: TextInputProps) => {
 
     const _containerStyle = StyleSheet.flatten([
         styles.containerStyle,
-        round && { borderRadius: Metrics.radiusSm },
+        round && {borderRadius: Metrics.radiusSm},
         containerStyle,
         isFocused ? TEXT_INPUT_FOCUS_THEME.focus : TEXT_INPUT_FOCUS_THEME.unFocus,
         disabled && styles.disableInput,
@@ -145,7 +145,7 @@ export const TextInput = (props: TextInputProps) => {
                     multiline={!isPassword && multiline}
                     textAlignVertical={textAlignVertical}
                     placeholderTextColor={placeholderTextColor}
-                    style={[{ color: textColor }, styles.inputStyle, inputStyle]}
+                    style={[{color: textColor}, styles.inputStyle, inputStyle]}
                     secureTextEntry={!showPassword && isPassword}
                 />
                 {!isEmpty(value) && showClearAll && (

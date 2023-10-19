@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {omit} from 'lodash';
 import {Pressable, GestureResponderEvent, StyleSheet, StyleProp, ViewStyle} from 'react-native';
 
-interface TouchableProps {
+interface AvatarProps {
     style?: StyleProp<ViewStyle>;
     children?: React.ReactNode;
     center?: boolean;
@@ -15,7 +15,7 @@ interface TouchableProps {
     onPressOut?: (e: GestureResponderEvent) => void;
 }
 
-export const Touchable = (props: TouchableProps) => {
+export const Avatar = (props: AvatarProps) => {
     const [pressed, setPressed] = useState<boolean>(false);
     const {
         style,

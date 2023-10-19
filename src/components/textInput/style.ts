@@ -1,9 +1,9 @@
-import { StyleSheet } from 'react-native';
-import { Metrics, Colors } from '../../themes';
+import {StyleSheet} from 'react-native';
+import {Metrics, Colors} from '../../themes';
 
 export const TEXT_INPUT_FOCUS_THEME = {
-    focus: { backgroundColor: Colors.white, borderColor: Colors.gray2 },
-    unFocus: { backgroundColor: Colors.gray1, borderColor: Colors.gray3 },
+    focus: {backgroundColor: Colors.white, borderColor: Colors.gray2},
+    unFocus: {backgroundColor: Colors.gray1, borderColor: Colors.gray3},
 };
 
 export const styles = StyleSheet.create({

@@ -1,9 +1,9 @@
-import React, { forwardRef, useRef, useState } from 'react';
-import { StyleSheet, KeyboardAvoidingView, StyleProp, ViewStyle } from 'react-native';
+import React, {forwardRef, useRef, useState} from 'react';
+import {StyleSheet, KeyboardAvoidingView, StyleProp, ViewStyle} from 'react-native';
 import Modal from 'react-native-modal';
-import { Metrics } from '../../themes';
-import { View, Button, Text } from '../../components';
-import { styles } from './style';
+import {Metrics} from '../../themes';
+import {View, Button, Text} from '../../components';
+import {styles} from './style';
 
 interface ConfirmDialogProps {
     children: any;

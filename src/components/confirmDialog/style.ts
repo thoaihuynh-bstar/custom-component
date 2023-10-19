@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { Colors, Metrics } from '../../themes';
+import {StyleSheet} from 'react-native';
+import {Colors, Metrics} from '../../themes';
 
 export const styles = StyleSheet.create({
     containerStyle: {
@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 20,
         backgroundColor: 'transparent',
     },
-    halfScreenButton: { width: '45%' },
-    fullScreenButton: { width: '100%' },
-    buttonView: { marginTop: 8 },
+    halfScreenButton: {width: '45%'},
+    fullScreenButton: {width: '100%'},
+    buttonView: {marginTop: 8},
 });

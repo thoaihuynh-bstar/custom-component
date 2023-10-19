@@ -1,8 +1,8 @@
 import React from 'react';
-import { Pressable, StyleProp, TextStyle, ViewStyle, ImageStyle, Text } from 'react-native';
-import { Image } from '../../components';
-import { Images } from '../../themes';
-import { styles } from './style';
+import {Pressable, StyleProp, TextStyle, ViewStyle, ImageStyle, Text} from 'react-native';
+import {Image} from '../../components';
+import {Images} from '../../themes';
+import {styles} from './style';
 
 interface CheckBoxProps {
     disable?: boolean;

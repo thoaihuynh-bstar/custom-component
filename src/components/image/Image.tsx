@@ -1,8 +1,8 @@
 import React from 'react';
-import { Image as RNImage, ImageStyle, StyleProp, StyleSheet } from 'react-native';
-import FastImage, { OnLoadEvent } from 'react-native-fast-image';
-import { isUrl } from '../../utils/stringUtils';
-import { styles } from './style';
+import {Image as RNImage, ImageStyle, StyleProp, StyleSheet} from 'react-native';
+import FastImage, {OnLoadEvent} from 'react-native-fast-image';
+import {isUrl} from '../../utils/stringUtils';
+import {styles} from './style';
 
 interface ImageProps {
     source: string;
@@ -13,7 +13,7 @@ interface ImageProps {
 }
 
 export const Image = (props: ImageProps) => {
-    const { source, resizeMode = 'contain', iconType, imageStyle, onLoad } = props;
+    const {source, resizeMode = 'contain', iconType, imageStyle, onLoad} = props;
     const isString = typeof source === 'string';
 
     const onImageLoad = (event: OnLoadEvent) => {
@@ -31,14 +31,14 @@ export const Image = (props: ImageProps) => {
     return isString && isUrl(source) ? (
         <FastImage
             resizeMode={resizeMode}
-            source={{ uri: source }}
+            source={{uri: source}}
             onLoad={onImageLoad}
             style={_ImageStyle}
         />
     ) : (
         <RNImage
             resizeMode={resizeMode}
-            source={isString ? { uri: source } : source}
+            source={isString ? {uri: source} : source}
             style={_ImageStyle}
         />
     );

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Switch as RNSwitch } from 'react-native';
-import { Colors } from '../../themes';
+import {Switch as RNSwitch} from 'react-native';
+import {Colors} from '../../themes';
 
 interface SwitchProps {
     disable?: boolean;
@@ -31,11 +31,11 @@ export const Switch = (props: SwitchProps) => {
 
     return (
         <RNSwitch
-            trackColor={{ false: disableTrackColor, true: enabledTrackColor }}
+            trackColor={{false: disableTrackColor, true: enabledTrackColor}}
             thumbColor={disable ? disableThumbColor : enabledThumbColor}
             ios_backgroundColor={disableTrackColor}
             onValueChange={onSwitchToggle}
-            style={{ transform: [{ scaleX: scaleX || 1 }, { scaleY: scaleY || 0.9 }] }}
+            style={{transform: [{scaleX: scaleX || 1}, {scaleY: scaleY || 0.9}]}}
             value={disable}
         />
     );

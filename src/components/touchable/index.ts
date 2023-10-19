@@ -1,3 +1,3 @@
-import { Touchable } from './Touchable';
+import {Touchable} from './Touchable';
 
-export { Touchable };
+export {Touchable};
