@@ -90,7 +90,7 @@ export const TextInput = (props: TextInputProps) => {
 
     const _containerStyle = StyleSheet.flatten([
         styles.containerStyle,
-        round && {borderRadius: Metrics.radiusSm},
+        round && {borderRadius: Metrics.RADIUS_SM},
         containerStyle,
         isFocused ? TEXT_INPUT_FOCUS_THEME.focus : TEXT_INPUT_FOCUS_THEME.unFocus,
         disabled && styles.disableInput,

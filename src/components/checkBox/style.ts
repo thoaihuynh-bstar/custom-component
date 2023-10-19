@@ -7,17 +7,17 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
     },
     titleStyle: {
-        marginLeft: Metrics.spacingXs,
+        marginLeft: Metrics.SPACING_XS,
     },
-    smallIcon: {
+    smIcon: {
         height: 16,
         width: 16,
     },
-    mediumIcon: {
+    mdIcon: {
         height: 20,
         width: 20,
     },
-    largeIcon: {
+    lgIcon: {
         height: 24,
         width: 24,
     },

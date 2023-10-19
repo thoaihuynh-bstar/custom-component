@@ -1,6 +1,7 @@
 import React from 'react';
 import {omit} from 'lodash';
 import {View as RNView, StyleProp, StyleSheet, ViewStyle} from 'react-native';
+import {StyleUtils} from '../../utils';
 
 interface ViewProps {
     row?: boolean;
@@ -39,7 +40,7 @@ export const View = (props: ViewProps) => {
     ]);
 
     return (
-        <RNView {...omit(props, ['children', 'style'])} style={_viewStyle}>
+        <RNView {...omit(props, ['children', 'style'])} style={[_viewStyle, StyleUtils.ROW]}>
             {children}
         </RNView>
     );

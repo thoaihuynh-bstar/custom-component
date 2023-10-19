@@ -4,9 +4,9 @@ import {Colors, Metrics} from '../../themes';
 export const styles = StyleSheet.create({
     containerStyle: {
         backgroundColor: Colors.white,
-        borderRadius: Metrics.radiusLg,
-        padding: Metrics.spacingSm,
-        marginHorizontal: Metrics.spacingSm,
+        borderRadius: Metrics.RADIUS_LG,
+        padding: Metrics.SPACING_SM,
+        marginHorizontal: Metrics.SPACING_SM,
     },
     blurModal: {
         minHeight: 20,

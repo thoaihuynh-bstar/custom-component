@@ -8,19 +8,19 @@ export const styles = StyleSheet.create({
     },
 
     xsIcon: {
-        height: Metrics.iconXs,
-        width: Metrics.iconXs,
+        height: Metrics.ICON_XS,
+        width: Metrics.ICON_XS,
     },
     smIcon: {
-        height: Metrics.iconSm,
-        width: Metrics.iconSm,
+        height: Metrics.ICON_SM,
+        width: Metrics.ICON_SM,
     },
     mdIcon: {
-        height: Metrics.iconMd,
-        width: Metrics.iconMd,
+        height: Metrics.ICON_MD,
+        width: Metrics.ICON_MD,
     },
     lgIcon: {
-        height: Metrics.iconLg,
-        width: Metrics.iconLg,
+        height: Metrics.ICON_LG,
+        width: Metrics.ICON_LG,
     },
 });

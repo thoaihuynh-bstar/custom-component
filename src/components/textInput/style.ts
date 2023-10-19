@@ -9,7 +9,7 @@ export const TEXT_INPUT_FOCUS_THEME = {
 export const styles = StyleSheet.create({
     containerStyle: {
         borderWidth: 1,
-        paddingHorizontal: Metrics.spacingSm,
+        paddingHorizontal: Metrics.SPACING_SM,
         borderColor: Colors.primary,
         alignItems: 'center',
     },
@@ -19,23 +19,23 @@ export const styles = StyleSheet.create({
         borderColor: Colors.gray2,
     },
     titleStyle: {
-        fontSize: Metrics.fontXl,
-        marginBottom: Metrics.spacingXs,
-        marginTop: Metrics.spacingMd,
+        fontSize: Metrics.FONT_XL,
+        marginBottom: Metrics.SPACING_XS,
+        marginTop: Metrics.SPACING_MD,
     },
     inputStyle: {
         flex: 1,
         flexGrow: 1,
-        minHeight: Metrics.buttonLg,
+        minHeight: Metrics.BUTTON_LG,
     },
     iconStyle: {
-        height: Metrics.iconLg,
-        width: Metrics.iconLg,
-        marginLeft: Metrics.spacingSm,
+        height: Metrics.ICON_LG,
+        width: Metrics.ICON_LG,
+        marginLeft: Metrics.SPACING_SM,
     },
     alertContainer: {
         flexDirection: 'row',
-        paddingVertical: Metrics.spacingSm,
+        paddingVertical: Metrics.SPACING_SM,
     },
     alertTextColor: {
         color: Colors.systemColor.alert,

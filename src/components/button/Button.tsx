@@ -20,7 +20,7 @@ interface ButtonProps {
     activeOpacity?: number;
     children?: React.ReactNode;
     type?: 'default' | 'outline' | 'alert';
-    size?: 'small' | 'medium' | 'large';
+    size?: 'sm' | 'md' | 'lg';
     leftIcon?: React.ReactNode;
     rightIcon?: React.ReactNode;
     onPress?: (e: GestureResponderEvent) => void;
@@ -37,7 +37,7 @@ export const Button = (props: ButtonProps) => {
         textStyle,
         children,
         type = 'default',
-        size = 'large',
+        size = 'lg',
         disable = false,
         leftIcon = null,
         rightIcon = null,

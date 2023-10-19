@@ -1,74 +1,42 @@
-import React, {useState} from 'react';
-import {omit} from 'lodash';
-import {Pressable, GestureResponderEvent, StyleSheet, StyleProp, ViewStyle} from 'react-native';
+import React from 'react';
+import {GestureResponderEvent, StyleProp, ViewStyle, View, ImageStyle} from 'react-native';
+import {Image, Touchable} from '../../components';
+import {Images, Metrics} from '../../themes';
+import {styles} from './style';
+import {StyleUtils} from '../../utils';
 
 interface AvatarProps {
-    style?: StyleProp<ViewStyle>;
-    children?: React.ReactNode;
-    center?: boolean;
-    row?: boolean;
-    centerHorizontal?: boolean;
-    centerVertical?: boolean;
-    onPress: (e: GestureResponderEvent) => void;
-    onLongPress?: (e: GestureResponderEvent) => void;
-    onPressIn?: (e: GestureResponderEvent) => void;
-    onPressOut?: (e: GestureResponderEvent) => void;
+    size?: 'sm' | 'md' | 'lg';
+    source?: string;
+    resizeMode?: 'contain' | 'cover' | 'stretch' | 'center';
+    containerStyle?: StyleProp<ViewStyle>;
+    style?: StyleProp<ImageStyle>;
+    onPress?: (e: GestureResponderEvent) => void;
 }
 
 export const Avatar = (props: AvatarProps) => {
-    const [pressed, setPressed] = useState<boolean>(false);
-    const {
-        style,
-        children,
-        center,
-        row,
-        centerHorizontal = false,
-        centerVertical = false,
-        onPress,
-        onLongPress,
-        onPressIn,
-        onPressOut,
-    } = props;
+    const {size = 'sm', source, resizeMode = 'contain', containerStyle, style, onPress} = props;
 
-    const onButtonPress = (e: GestureResponderEvent) => {
+    const onEditPress = (e: GestureResponderEvent) => {
         onPress && onPress(e);
     };
 
-    const onButtonLongPress = (e: GestureResponderEvent) => {
-        onLongPress && onLongPress(e);
-    };
-
-    const onButtonPressIn = (e: GestureResponderEvent) => {
-        setPressed(true);
-        onPressIn && onPressIn(e);
-    };
-
-    const onButtonPressOut = (e: GestureResponderEvent) => {
-        setPressed(false);
-        onPressOut && onPressOut(e);
-    };
-
-    const _containerStyle: StyleProp<ViewStyle> = StyleSheet.flatten([
-        {
-            ...(row && {flexDirection: 'row'}),
-            ...(center && {justifyContent: 'center', alignItems: 'center'}),
-            ...(centerHorizontal && {alignItems: 'center'}),
-            ...(centerVertical && {justifyContent: 'center'}),
-            ...(pressed && {opacity: 0.6}),
-        },
-        style,
-    ]);
-
     return (
-        <Pressable
-            {...omit(props, ['children', 'style'])}
-            style={_containerStyle}
-            onPress={onButtonPress}
-            onLongPress={onButtonLongPress}
-            onPressIn={onButtonPressIn}
-            onPressOut={onButtonPressOut}
-        >
-            {children}
-        </Pressable>
+        <View style={[styles[`${size}Avatar`], containerStyle]}>
+            <Image
+                resizeMode={resizeMode}
+                source={Images.icAvatar}
+                style={[styles[`${size}Avatar`], style]}
+            />
+            {!!onPress && (
+                <Touchable
+                    hitSlop={Metrics.HIT_SLOPS_SM}
+                    style={[styles.editButton, styles[`${size}Position`]]}
+                    onPress={onEditPress}
+                >
+                    <Image source={source || Images.icEdit} style={StyleUtils.ICON_SM} />
+                </Touchable>
+            )}
+        </View>
     );
 };

@@ -6,23 +6,23 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
-        paddingHorizontal: Metrics.spacingSm,
-        borderRadius: Metrics.radiusSm,
+        paddingHorizontal: Metrics.SPACING_SM,
+        borderRadius: Metrics.RADIUS_SM,
     },
     // Button size
-    smallButton: {height: Metrics.buttonSm},
-    mediumButton: {height: Metrics.buttonMd},
-    largeButton: {height: Metrics.buttonLg},
+    smButton: {height: Metrics.BUTTON_SM},
+    mdButton: {height: Metrics.BUTTON_MD},
+    lgButton: {height: Metrics.BUTTON_LG},
 
     // Font size
-    smallText: {fontSize: Metrics.fontSm, fontWeight: '600'},
-    mediumText: {fontSize: Metrics.fontMd, fontWeight: '600'},
-    largeText: {fontSize: Metrics.fontLg, fontWeight: '600'},
+    smText: {fontSize: Metrics.FONT_SM, fontWeight: '600'},
+    mdText: {fontSize: Metrics.FONT_MD, fontWeight: '600'},
+    lgText: {fontSize: Metrics.FONT_LG, fontWeight: '600'},
 
     // Indicator size
-    smallIndicator: {transform: [{scale: 0.6}], marginRight: Metrics.spacingXs},
-    mediumIndicator: {transform: [{scale: 0.8}], marginRight: Metrics.spacingXs},
-    largeIndicator: {transform: [{scale: 1}], marginRight: Metrics.spacingXs},
+    smIndicator: {transform: [{scale: 0.6}], marginRight: Metrics.SPACING_XS},
+    mdIndicator: {transform: [{scale: 0.8}], marginRight: Metrics.SPACING_XS},
+    lgIndicator: {transform: [{scale: 1}], marginRight: Metrics.SPACING_XS},
 
     // Button background color
     defaultBackground: {backgroundColor: Colors.primary},

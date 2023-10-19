@@ -11,7 +11,7 @@ interface CheckBoxProps {
     checkedTitle?: React.ReactNode;
     checkedIcon?: string | number;
     unCheckedIcon?: string | number;
-    size?: 'small' | 'medium' | 'large';
+    size?: 'sm' | 'md' | 'lg';
     textStyle?: StyleProp<TextStyle>;
     containerStyle?: StyleProp<ViewStyle>;
     checkedIconStyle?: StyleProp<ImageStyle>;
@@ -27,7 +27,7 @@ export const CheckBox = (props: CheckBoxProps) => {
         checkedTitle,
         checkedIcon,
         unCheckedIcon,
-        size = 'medium',
+        size = 'md',
         textStyle,
         checkedIconStyle,
         unCheckedIconStyle,
@@ -50,12 +50,12 @@ export const CheckBox = (props: CheckBoxProps) => {
             {checked ? (
                 <Image
                     source={checkedIcon || Images.icCheck}
-                    imageStyle={[styles[`${size}Icon`], checkedIconStyle]}
+                    style={[styles[`${size}Icon`], checkedIconStyle]}
                 />
             ) : (
                 <Image
                     source={unCheckedIcon || Images.icUnCheck}
-                    imageStyle={[styles[`${size}Icon`], unCheckedIconStyle]}
+                    style={[styles[`${size}Icon`], unCheckedIconStyle]}
                 />
             )}
             {title ? (

@@ -7,6 +7,7 @@ interface TouchableProps {
     children?: React.ReactNode;
     center?: boolean;
     row?: boolean;
+    hitSlop?: number;
     centerHorizontal?: boolean;
     centerVertical?: boolean;
     onPress: (e: GestureResponderEvent) => void;
@@ -22,6 +23,7 @@ export const Touchable = (props: TouchableProps) => {
         children,
         center,
         row,
+        hitSlop = null,
         centerHorizontal = false,
         centerVertical = false,
         onPress,
@@ -62,6 +64,7 @@ export const Touchable = (props: TouchableProps) => {
     return (
         <Pressable
             {...omit(props, ['children', 'style'])}
+            hitSlop={hitSlop}
             style={_containerStyle}
             onPress={onButtonPress}
             onLongPress={onButtonLongPress}

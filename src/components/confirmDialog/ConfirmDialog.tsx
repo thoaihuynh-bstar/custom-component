@@ -102,7 +102,7 @@ export const ConfirmDialog = forwardRef((props: ConfirmDialogProps, ref: any) =>
                 statusBarTranslucent
                 animationInTiming={300}
                 animationOutTiming={300}
-                deviceHeight={Metrics.screenHeight + 80}
+                deviceHeight={Metrics.SCREEN_HEIGHT + 80}
                 backdropTransitionInTiming={300}
                 backdropTransitionOutTiming={300}
                 onBackdropPress={onHideBackdrop}

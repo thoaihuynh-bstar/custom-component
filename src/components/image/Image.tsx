@@ -9,11 +9,11 @@ interface ImageProps {
     iconType?: 'xs' | 'sm' | 'md' | 'lg';
     resizeMode?: 'contain' | 'cover' | 'stretch' | 'center';
     onLoad?: (data: any) => void;
-    imageStyle?: StyleProp<ImageStyle>;
+    style?: StyleProp<ImageStyle>;
 }
 
 export const Image = (props: ImageProps) => {
-    const {source, resizeMode = 'contain', iconType, imageStyle, onLoad} = props;
+    const {source, resizeMode = 'contain', iconType, style, onLoad} = props;
     const isString = typeof source === 'string';
 
     const onImageLoad = (event: OnLoadEvent) => {
@@ -25,7 +25,7 @@ export const Image = (props: ImageProps) => {
     const _ImageStyle: StyleProp<ImageStyle> = StyleSheet.flatten([
         styles.containerStyle,
         iconType && styles[`${iconType}Icon`],
-        imageStyle,
+        style,
     ]);
 
     return isString && isUrl(source) ? (
